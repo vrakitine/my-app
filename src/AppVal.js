@@ -1,5 +1,5 @@
 import './App.css';
-
+// Playing in https://beta.reactjs.org/learn 
 function AppVal() {
   const products = [
     { title: 'Cabbage', id: 1 },
