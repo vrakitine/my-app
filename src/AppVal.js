@@ -5,10 +5,16 @@ import { useState } from 'react';
 
 function AppVal() {
 
-  const [count, setCount] = useState(0);
+  const [countOne, setCountOne] = useState(0);
 
-  function handleClick() {
-    setCount(count + 1);
+  function handleClickOne() {
+    setCountOne(countOne + 1);
+  }
+
+  const [countTwo, setCountTwo] = useState(0);
+
+  function handleClickTwo() {
+    setCountTwo(countTwo + 1);
   }
 
 
@@ -16,10 +22,10 @@ function AppVal() {
     <div className="App">
       <header className="App-header">
         <p>
-          <MyButtonOne count = {count} onClick={handleClick}/>
+          <MyButtonOne count = {countOne} onClick={handleClickOne}/>
         </p>
         <p>
-          <MyButtonTwo count = {count} onClick={handleClick}/>
+          <MyButtonTwo count = {countTwo} onClick={handleClickTwo}/>
         </p>
       </header>
     </div>
