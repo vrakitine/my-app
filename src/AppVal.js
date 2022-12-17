@@ -1,5 +1,20 @@
 import './App.css';
 // Playing in https://beta.reactjs.org/learn 
+
+function MyButton() {
+  function handleClick() {
+    alert('You clicked me!');
+  }
+
+  return (
+    <button onClick={handleClick}>
+      Click me
+    </button>
+  );
+}
+
+
+
 function AppVal() {
   const products = [
     { title: 'Cabbage', isFruit: false, id: 1 },
@@ -21,7 +36,7 @@ function AppVal() {
     <div className="App">
       <header className="App-header">
         <p>
-          Start
+          Start <MyButton />
         </p>
         <p>
         <ul>{listItems}</ul>
