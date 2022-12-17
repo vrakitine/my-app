@@ -22,30 +22,30 @@ function AppVal() {
     <div className="App">
       <header className="App-header">
         <p>
-          <MyButtonOne count = {countOne} onClick={handleClickOne}/>
+          <MyButtonOne count = {countOne} onClick={handleClickOne} countTwo={countTwo}/>
         </p>
         <p>
-          <MyButtonTwo count = {countTwo} onClick={handleClickTwo}/>
+          <MyButtonTwo count = {countTwo} onClick={handleClickTwo} countOne={countOne}/>
         </p>
       </header>
     </div>
   );
 }
 
-function MyButtonOne({count, onClick}) {
+function MyButtonOne({count, onClick, countTwo}) {
 
   return (
     <button onClick={onClick}>
-      MyButtonOne Clicked {count} times
+      MyButtonOne Clicked {count} times [{countTwo}]
     </button>
   );
 }
 
-function MyButtonTwo({count, onClick}) {
+function MyButtonTwo({count, onClick, countOne}) {
 
   return (
     <button onClick={onClick}>
-      MyButtonTwo Clicked {count} times
+      MyButtonTwo Clicked {count} times [{countOne}]
     </button>
   );
 }
