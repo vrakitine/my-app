@@ -2,7 +2,7 @@ import './App.css';
 import { useState } from 'react';
 // Playing in https://beta.reactjs.org/learn 
 
-function MyButton() {
+function MyButtonOne() {
   const [count, setCount] = useState(0);
 
   function handleClick() {
@@ -11,7 +11,20 @@ function MyButton() {
 
   return (
     <button onClick={handleClick}>
-      Clicked {count} times
+      MyButtonOne Clicked {count} times
+    </button>
+  );
+}
+function MyButtonTwo() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(prevCount => prevCount + 1);
+  }
+
+  return (
+    <button onClick={handleClick}>
+      MyButtonTwo Clicked {count} times
     </button>
   );
 }
@@ -23,10 +36,10 @@ function AppVal() {
     <div className="App">
       <header className="App-header">
         <p>
-          First <MyButton />
+          <MyButtonOne />
         </p>
         <p>
-          Second <MyButton />
+          <MyButtonTwo />
         </p>
       </header>
     </div>
