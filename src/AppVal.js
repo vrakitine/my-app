@@ -43,10 +43,17 @@ function MyButtonOne({count, onClick, countTwo}) {
 
 function MyButtonTwo({count, onClick, countOne}) {
 
+  if(count == countOne) return null
+
   return (
+    <div>
+    <p>
+      [{countOne}]
+    </p>
     <button onClick={onClick}>
       MyButtonTwo Clicked {count} times [{countOne}]
     </button>
+    </div>
   );
 }
 
