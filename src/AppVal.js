@@ -55,7 +55,7 @@ function AppVal() {
     <div className="App">
       <header className="App-header">
         <p>
-         <small>previousAction:</small>[{previousAction}] ==> <small>directionAction:</small>[{directionAction}] ==> <small>currentAction:</small>[{currentAction}]
+         <small>previousAction:</small>[{previousAction}] ==&gt; <small>directionAction:</small>[{directionAction}] ==&gt; <small>currentAction:</small>[{currentAction}]
         </p>
         <p>
           <MyButtonOne onClick={() => getAction('Direction_one')}/>
