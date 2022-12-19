@@ -5,8 +5,8 @@ import { useState } from 'react';
 
 function AppVal() {
 
-  const [currentAction, setAction] = useState('Action_init');
-  //const [previousAction, setPreviousActione] = useState('Action_init');
+  const [currentAction, setCurrentAction] = useState('Action_init');
+  //const [previousAction, setPreviousAction] = useState('Action_init');
   const [direction, setDirection] = useState('Direction_00');
 
   console.log('currentAction', currentAction); 
@@ -14,20 +14,16 @@ function AppVal() {
 
   function getAction(d) {
     console.log('Click!!!'); 
-    //setAction('Action_one');
+    //setCurrentAction('Action_one');
     console.log(d); 
-    //setDirection(d);
-    /*
-    console.log(d); 
-    setDirection(d);
-    console.log(direction);
+
     if(d === 'Direction_one'){
-      //return(setAction('Action_one'));
+      return(setCurrentAction('Action_one'));
     }
     if(d === 'Direction_two'){
-      //return(setAction('Action_two'));
+      return(setCurrentAction('Action_two'));
     } 
-    */
+    
   }
 
 
@@ -35,10 +31,10 @@ function AppVal() {
     <div className="App">
       <header className="App-header">
         <p>
-          <MyButtonOne onClick={getAction('Direction_one')} action = {currentAction} dd = {direction}/>
+          <MyButtonOne onClick={() => getAction('Direction_one')} action = {currentAction} dd = {direction}/>
         </p>
         <p>
-          <MyButtonTwo onClick={getAction('Direction_two')} action = {currentAction} dd = {direction}/>
+          <MyButtonTwo onClick={() => getAction('Direction_two')} action = {currentAction} dd = {direction}/>
         </p>
       </header>
     </div>
