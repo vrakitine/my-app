@@ -1,5 +1,7 @@
 import './App.css';
 import { useState } from 'react';
+// C:\Users\val\ReactProjects\my-app\src\vaop\va-scripts\va-script-10.json
+//import { vaScript } from "./vaop/va-scripts/va-script-10.json";
 // Playing in https://beta.reactjs.org/learn 
 // import { dashboard } from "data/data_can.json";
 //https://reactjs.org/docs/context.html
@@ -9,24 +11,43 @@ import { useState } from 'react';
 function AppVal() {
 
   const [currentAction, setCurrentAction] = useState('Action_init');
-  //const [previousAction, setPreviousAction] = useState('Action_init');
+  const [previousAction, setPreviousAction] = useState('Action_init');
   const [direction, setDirection] = useState('Direction_00');
+  const [vaScript, setVaScript] = useState(getVaScript());
 
   console.log('currentAction', currentAction); 
-  //console.log(direction); 
+  console.log(getVaScript()); 
+
+  function getVaScript() {
+    var vaScript = {
+      "Action_init":{
+         "Direction_one":"Action_one",
+         "Direction_two":"Action_two"
+      },
+      "Action_one":{
+         "Direction_one":"Action_two",
+         "Direction_two":"Action_one"
+      },
+      "Action_two":{
+         "Direction_one":"Action_two",
+         "Direction_two":"Action_one"
+      }
+    };
+
+
+    return vaScript;
+  }
 
   function getAction(d) {
     console.log('Click!!!'); 
-    //setCurrentAction('Action_one');
     console.log(d); 
 
-    if(d === 'Direction_one'){
-      return(setCurrentAction('Action_one'));
-    }
-    if(d === 'Direction_two'){
-      return(setCurrentAction('Action_two'));
-    } 
-    
+    //var vaScript = getVaScript();
+    console.log(vaScript); 
+    var temp = previousAction;
+    setPreviousAction(currentAction);
+
+    return(setCurrentAction(vaScript[temp][d]));
   }
 
 
