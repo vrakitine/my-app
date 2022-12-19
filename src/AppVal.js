@@ -6,14 +6,19 @@ function AppVal() {
 
   const [currentAction, setCurrentAction] = useState('Action_init');
   //const [previousAction, setPreviousActione] = useState('Action_init');
-  //const [direction, setDirection] = useState('Direction_00');
+  const [direction, setDirection] = useState('Direction_00');
 
-  function getCurrentAction(direction) {
-    if(direction === 'Direction_one'){
-      return(setCurrentAction('Action_one'));
+  console.log(currentAction); 
+
+  function getCurrentAction(d) {
+    console.log(d); 
+    setDirection(d);
+    console.log(direction);
+    if(d === 'Direction_one'){
+      //return(setCurrentAction('Action_one'));
     }
-    if(direction === 'Direction_two'){
-      return(setCurrentAction('Action_two'));
+    if(d === 'Direction_two'){
+      //return(setCurrentAction('Action_two'));
     } 
   }
 
@@ -21,38 +26,30 @@ function AppVal() {
     <div className="App">
       <header className="App-header">
         <p>
-          <MyButtonOne onClick={getCurrentAction} direction = 'Direction_one'/>
+          <MyButtonOne onClick={getCurrentAction('Direction_one')} action = {currentAction} dd = {direction}/>
         </p>
         <p>
-          <MyButtonTwo onClick={getCurrentAction} direction = 'Direction_two'/>
+          <MyButtonTwo onClick={getCurrentAction('Direction_two')} action = {currentAction} dd = {direction}/>
         </p>
-        {/*
-        <p>
-          <MyButtonPlus onClick={getNextAction} direction = 'Direction_plus'/>
-        </p>
-        <p>
-          <MyButtonEnter onClick={getNextAction} direction = 'Direction_enter'/>
-        </p>
-      */}
       </header>
     </div>
   );
 }
 
-function MyButtonOne({onClick, direction}) {
+function MyButtonOne({onClick, action, dd}) {
 
   return (
-    <button onClick={onClick(direction)}>
-      MyButtonOne: [{currentAction}]
+    <button onClick={onClick}>
+      MyButtonOne: [{action}] [{dd}]
     </button>
   );
 }
 
-function MyButtonTwo({onClick, direction}) {
+function MyButtonTwo({onClick, action, dd}) {
 
   return (
-    <button onClick={onClick(direction)}>
-      MyButtonTwo: [{currentAction}]
+    <button onClick={onClick}>
+      MyButtonTwo: [{action}] [{dd}]
     </button>
   );
 }
