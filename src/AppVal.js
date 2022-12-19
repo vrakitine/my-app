@@ -1,59 +1,59 @@
 import './App.css';
 import { useState } from 'react';
-// Playing in https://beta.reactjs.org/learn 
 
 
 function AppVal() {
 
-  const [countOne, setCountOne] = useState(0);
+  const [currentAction, setCurrentAction] = useState('Action_init');
+  //const [previousAction, setPreviousActione] = useState('Action_init');
+  //const [direction, setDirection] = useState('Direction_00');
 
-  function handleClickOne() {
-    setCountOne(countOne + 1);
+  function getCurrentAction(direction) {
+    if(direction === 'Direction_one'){
+      return(setCurrentAction('Action_one'));
+    }
+    if(direction === 'Direction_two'){
+      return(setCurrentAction('Action_two'));
+    } 
   }
-
-  const [countTwo, setCountTwo] = useState(0);
-
-  function handleClickTwo() {
-    setCountTwo(countTwo + 1);
-  }
-
 
   return (
     <div className="App">
       <header className="App-header">
         <p>
-          <MyButtonOne count = {countOne} onClick={handleClickOne} countTwo={countTwo}/>
+          <MyButtonOne onClick={getCurrentAction} direction = 'Direction_one'/>
         </p>
         <p>
-          <MyButtonTwo count = {countTwo} onClick={handleClickTwo} countOne={countOne}/>
+          <MyButtonTwo onClick={getCurrentAction} direction = 'Direction_two'/>
         </p>
+        {/*
+        <p>
+          <MyButtonPlus onClick={getNextAction} direction = 'Direction_plus'/>
+        </p>
+        <p>
+          <MyButtonEnter onClick={getNextAction} direction = 'Direction_enter'/>
+        </p>
+      */}
       </header>
     </div>
   );
 }
 
-function MyButtonOne({count, onClick, countTwo}) {
+function MyButtonOne({onClick, direction}) {
 
   return (
-    <button onClick={onClick}>
-      MyButtonOne Clicked {count} times [{countTwo}]
+    <button onClick={onClick(direction)}>
+      MyButtonOne: [{currentAction}]
     </button>
   );
 }
 
-function MyButtonTwo({count, onClick, countOne}) {
-
-  if(count === countOne) return null
+function MyButtonTwo({onClick, direction}) {
 
   return (
-    <div>
-    <p>
-      [{countOne}]
-    </p>
-    <button onClick={onClick}>
-      MyButtonTwo Clicked {count} times [{countOne}]
+    <button onClick={onClick(direction)}>
+      MyButtonTwo: [{currentAction}]
     </button>
-    </div>
   );
 }
 
