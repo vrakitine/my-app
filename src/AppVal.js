@@ -8,9 +8,12 @@ function AppVal() {
   //const [previousAction, setPreviousActione] = useState('Action_init');
   const [direction, setDirection] = useState('Direction_00');
 
-  console.log(currentAction); 
+  console.log('currentAction', currentAction); 
+  //console.log(direction); 
 
   function getCurrentAction(d) {
+    setDirection(d);
+    /*
     console.log(d); 
     setDirection(d);
     console.log(direction);
@@ -20,6 +23,7 @@ function AppVal() {
     if(d === 'Direction_two'){
       //return(setCurrentAction('Action_two'));
     } 
+    */
   }
 
   return (
