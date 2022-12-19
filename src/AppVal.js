@@ -12,7 +12,7 @@ function AppVal() {
 
   const [currentAction, setCurrentAction] = useState('Action_init');
   const [previousAction, setPreviousAction] = useState('Action_init');
-  const [direction, setDirection] = useState('Direction_00');
+  const [directionAction, setDirectionAction] = useState('Direction_init');
   const [vaScript, setVaScript] = useState(getVaScript());
 
   console.log('currentAction', currentAction); 
@@ -38,16 +38,16 @@ function AppVal() {
     return vaScript;
   }
 
-  function getAction(d) {
+  function getAction(direction) {
     console.log('Click!!!'); 
-    console.log(d); 
+    console.log(direction); 
 
-    //var vaScript = getVaScript();
-    console.log(vaScript); 
-    var temp = previousAction;
+    //
+    setDirectionAction(direction)
+    var previous = previousAction;
     setPreviousAction(currentAction);
-
-    return(setCurrentAction(vaScript[temp][d]));
+    //
+    return(setCurrentAction(vaScript[previous][direction]));
   }
 
 
@@ -55,30 +55,33 @@ function AppVal() {
     <div className="App">
       <header className="App-header">
         <p>
-          <MyButtonOne onClick={() => getAction('Direction_one')} action = {currentAction} dd = {direction}/>
+         <small>previousAction:</small>[{previousAction}] ==> <small>directionAction:</small>[{directionAction}] ==> <small>currentAction:</small>[{currentAction}]
         </p>
         <p>
-          <MyButtonTwo onClick={() => getAction('Direction_two')} action = {currentAction} dd = {direction}/>
+          <MyButtonOne onClick={() => getAction('Direction_one')}/>
+        </p>
+        <p>
+          <MyButtonTwo onClick={() => getAction('Direction_two')}/>
         </p>
       </header>
     </div>
   );
 }
 
-function MyButtonOne({onClick, action, dd}) {
+function MyButtonOne({onClick}) {
 
   return (
     <button onClick={onClick}>
-      MyButtonOne: [{action}] [{dd}]
+      MyButtonOne
     </button>
   );
 }
 
-function MyButtonTwo({onClick, action, dd}) {
+function MyButtonTwo({onClick}) {
 
   return (
     <button onClick={onClick}>
-      MyButtonTwo: [{action}] [{dd}]
+      MyButtonTwo
     </button>
   );
 }
