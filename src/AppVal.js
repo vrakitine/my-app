@@ -5,10 +5,15 @@ import { useState } from 'react';
 
 function AppVal() {
 
+  
+
   const [countOne, setCountOne] = useState(0);
+
+  console.log('countOne', countOne); 
 
   function handleClickOne() {
     setCountOne(countOne + 1);
+    console.log('countOne----', countOne); 
   }
 
   const [countTwo, setCountTwo] = useState(0);
