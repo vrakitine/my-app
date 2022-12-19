@@ -43,7 +43,7 @@ function MyButtonOne({count, onClick, countTwo}) {
 
 function MyButtonTwo({count, onClick, countOne}) {
 
-  if(count == countOne) return null
+  if(count === countOne) return null
 
   return (
     <div>
