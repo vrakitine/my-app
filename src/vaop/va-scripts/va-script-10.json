@@ -1,0 +1,14 @@
+{
+    "Action_init":{
+       "Direction_one":"Action_one",
+       "Direction_two":"Action_two"
+    },
+    "Action_one":{
+       "Direction_one":"Action_two",
+       "Direction_two":"Action_one"
+    },
+    "Action_two":{
+       "Direction_one":"Action_two",
+       "Direction_two":"Action_one"
+    }
+}
