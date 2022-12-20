@@ -24,6 +24,8 @@ function AppVal() {
   "Direction_equal":"Action_waiting_for_operand_2"
   */
 
+  //getAction(directionAction);
+
   function getVaScript() {
     var vaScript = {
       "Action_init":{
@@ -78,10 +80,10 @@ function AppVal() {
     setPreviousAction(currentAction);
     //vaScript.hasOwnProperty(previous)
     if(vaScript.hasOwnProperty(previous)){
-
-      setCurrentAction(vaScript[previous][direction])
-      console.log('currentAction in case:[' + currentAction +']');
-      switch(currentAction) {
+      var current = vaScript[previous][direction];
+      setCurrentAction(current)
+      console.log('currentAction in case:[' + current +']');
+      switch(current) {
         case "Action_init":
         
           break;
@@ -102,7 +104,7 @@ function AppVal() {
           break;
 
         default:
-          console.log('Error: Unknown action in default:[' + currentAction + ']')
+          console.log('Error: Unknown action in default:[' + current + ']')
       }
 
 
