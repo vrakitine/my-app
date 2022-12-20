@@ -13,21 +13,12 @@ function AppVal() {
   const [currentAction, setCurrentAction] = useState('Action_init');
   const [previousAction, setPreviousAction] = useState('Action_init');
   const [directionAction, setDirectionAction] = useState('Direction_init');
-  const [vaScript, setVaScript] = useState(getVaScript());
+  const [operandOne, setOperandOne] = useState('');
+  const [operandTwo, setOperandTwo] = useState('');
+  const [result, setResult] = useState('');
 
-  //console.log('currentAction', currentAction); 
-  //console.log(getVaScript()); 
 
-  // First summand 2. Second summand 2. Find the value of the sum
-  /*
-  "Direction_plus":"Action_waiting_for_operand_2"
-  "Direction_equal":"Action_waiting_for_operand_2"
-  */
-
-  //getAction(directionAction);
-
-  function getVaScript() {
-    var vaScript = {
+  const vaScript = {
       "Action_init":{
          "Direction_one":"Action_operand_1_attach_one",
          "Direction_two":"Action_operand_1_attach_two",
@@ -66,43 +57,49 @@ function AppVal() {
       }
     };
 
-
-    return vaScript;
-  }
-
   function getAction(direction) {
     console.log('Click!!!'); 
     console.log(direction); 
      
     //
     setDirectionAction(direction)
-    var previous = previousAction;
     setPreviousAction(currentAction);
-    
+    var previous = previousAction;
+    setCurrentAction('unknownAction')
+
+
     if(vaScript.hasOwnProperty(previous)){
+
       var current = vaScript[previous][direction];
-      setCurrentAction(current)
+      setCurrentAction(current) 
+    }
+    if(!vaScript.hasOwnProperty(previous)){
+      alert('Fatal error: [' + previous + '] is not a key of vaScript')
+    }
+
+    if(vaScript.hasOwnProperty(current)){
+  
       console.log('currentAction in case:[' + current +']');
+
       switch(current) {
         case "Action_init":
-        
+          // do nothing
           break;
         case "Action_operand_1_attach_one":
-          
+          setOperandOne(operandOne + '1')
           break;
         case "Action_operand_1_attach_two":
-          
+          setOperandOne(operandOne + '2')
           break;
         case "Action_waiting_for_operand_2_for_plus":
-          
+          // do nothing
           break;
         case "Action_operand_2_attach_one":
-          
+          setOperandTwo(operandTwo + '1')
           break;
         case "Action_operand_2_attach_two":
-          
+          setOperandTwo(operandTwo + '2')
           break;
-
         default:
           console.log('Error: Unknown action in default:[' + current + ']')
       }
@@ -110,9 +107,18 @@ function AppVal() {
 
       return;
     }
-    if(!(vaScript.hasOwnProperty(previous))){
+    if(!(vaScript.hasOwnProperty(current))){
+      switch(current) {
+        case "Action_show_result":
+          var temp = +operandOne + +operandTwo;
+          setResult(temp);
+          break;
+          default:
+            console.log('Error: [' + current + ']')
+        }
 
-      console.log('Stop', previous)
+
+      console.log('Stop --> [' + current + ']')
     }
 
   }
@@ -121,19 +127,21 @@ function AppVal() {
   return (
     <div className="App">
       <header className="App-header">
+        <h2>Mini Calculator</h2>
+        <p>
+          [{operandOne}] + [{operandTwo}] = [{result}]
+        </p>
+        <p>
+          <DigitOne onClick={() => getAction('Direction_one')}/> | 
+          <DigitTwo onClick={() => getAction('Direction_two')}/> ||
+          <ActionPlus onClick={() => getAction('Direction_plus')}/> || 
+          <ActionEqual onClick={() => getAction('Direction_equal')}/>
+        </p>
+        <p>
+          ----
+        </p>
         <p>
          <small>previousAction:</small>[{previousAction}] ==&gt; <small>directionAction:</small>[{directionAction}] ==&gt; <small>currentAction:</small>[{currentAction}]
-        </p>
-        <p>
-          <DigitOne onClick={() => getAction('Direction_one')}/> | <DigitTwo onClick={() => getAction('Direction_two')}/>
-        </p>
-        ---
-        <p>
-          <ActionPlus onClick={() => getAction('Direction_plus')}/>
-        </p>
-        ---
-        <p>
-          <ActionEqual onClick={() => getAction('Direction_equal')}/>
         </p>
       </header>
     </div>
