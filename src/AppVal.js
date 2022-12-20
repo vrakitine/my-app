@@ -78,7 +78,7 @@ function AppVal() {
     setDirectionAction(direction)
     var previous = previousAction;
     setPreviousAction(currentAction);
-    //vaScript.hasOwnProperty(previous)
+    
     if(vaScript.hasOwnProperty(previous)){
       var current = vaScript[previous][direction];
       setCurrentAction(current)
