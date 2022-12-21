@@ -7,56 +7,80 @@ const vaScript = {
      "Direction_two":"Action_operand_1_attach_two",     
      "Direction_three":"Action_operand_1_attach_three",     
      "Direction_plus":"Action_init",
-     "Direction_equal":"Action_init"
+     "Direction_equal":"Action_init",
+     "Direction_clear":"Action_clear"
   },
   "Action_operand_1_attach_one":{
      "Direction_one":"Action_operand_1_attach_one",
      "Direction_two":"Action_operand_1_attach_two",
      "Direction_three":"Action_operand_1_attach_three",  
      "Direction_plus":"Action_waiting_for_operand_2_for_plus",
-     "Direction_equal":"Error_10__Second_operand_is_missing"
+     "Direction_equal":"Error_10__Second_operand_is_missing",
+     "Direction_clear":"Action_clear"
   },
   "Action_operand_1_attach_two":{
     "Direction_one":"Action_operand_1_attach_one",
     "Direction_two":"Action_operand_1_attach_two",
     "Direction_three":"Action_operand_1_attach_three",  
     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
-    "Direction_equal":"Error_10__Second_operand_is_missing"
+    "Direction_equal":"Error_10__Second_operand_is_missing",
+    "Direction_clear":"Action_clear"
   },
   "Action_operand_1_attach_three":{
     "Direction_one":"Action_operand_1_attach_one",
     "Direction_two":"Action_operand_1_attach_two",
     "Direction_three":"Action_operand_1_attach_three",  
     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
-    "Direction_equal":"Error_10__Second_operand_is_missing"
+    "Direction_equal":"Error_10__Second_operand_is_missing",
+    "Direction_clear":"Action_clear"
   },
   "Action_waiting_for_operand_2_for_plus":{
     "Direction_one":"Action_operand_2_attach_one",
     "Direction_two":"Action_operand_2_attach_two",
     "Direction_three":"Action_operand_2_attach_three",  
     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
-    "Direction_equal":"Error_10__Second_operand_is_missing"
+    "Direction_equal":"Error_10__Second_operand_is_missing",
+    "Direction_clear":"Action_clear"
   },
   "Action_operand_2_attach_one":{
     "Direction_one":"Action_operand_2_attach_one",
     "Direction_two":"Action_operand_2_attach_two",
     "Direction_three":"Action_operand_2_attach_three",  
     "Direction_plus":"Action_show_result",
-    "Direction_equal":"Action_show_result"
+    "Direction_equal":"Action_show_result",
+    "Direction_clear":"Action_clear"
   },
   "Action_operand_2_attach_two":{
     "Direction_one":"Action_operand_2_attach_one",
     "Direction_two":"Action_operand_2_attach_two",
     "Direction_three":"Action_operand_2_attach_three",  
     "Direction_plus":"Action_show_result",
-    "Direction_equal":"Action_show_result"
+    "Direction_equal":"Action_show_result",
+    "Direction_clear":"Action_clear"
    },
   "Action_operand_2_attach_three":{
     "Direction_one":"Action_operand_2_attach_one",
     "Direction_two":"Action_operand_2_attach_two",
     "Direction_three":"Action_operand_2_attach_three",  
     "Direction_plus":"Action_show_result",
-    "Direction_equal":"Action_show_result"
+    "Direction_equal":"Action_show_result",
+    "Direction_clear":"Action_clear"
+   },
+   "Action_clear":{
+    "Direction_one":"Action_operand_1_attach_one",
+    "Direction_two":"Action_operand_1_attach_two",
+    "Direction_three":"Action_operand_1_attach_three",  
+    "Direction_plus":"Action_init",
+    "Direction_equal":"Action_init",
+    "Direction_clear":"Action_clear"
+   },
+   "Action_show_result":{
+    "Direction_one":"Action_clear",
+    "Direction_two":"Action_clear",
+    "Direction_three":"Action_clear",  
+    "Direction_plus":"Action_clear",
+    "Direction_equal":"Action_clear",
+    "Direction_clear":"Action_clear"
    }
   };
 
@@ -84,6 +108,15 @@ function AppVal() {
         case "Action_init":
           // do nothing
           break;
+        case "Action_clear":
+          setOperandOne('');
+          setOperandTwo('');
+          setResult('')
+          break;
+          case "Action_show_result":
+            var temp = +operandOne + +operandTwo;
+            setResult(temp);
+            break;
         case "Action_operand_1_attach_one":
           setOperandOne(operandOne + '1')
           break;
@@ -110,10 +143,7 @@ function AppVal() {
       }
     } else {
       switch(nextAction) {
-        case "Action_show_result":
-          var temp = +operandOne + +operandTwo;
-          setResult(temp);
-          break;
+
           default:
             console.log('Error: [' + nextAction + ']')
         }
@@ -136,11 +166,13 @@ function AppVal() {
           [{operandOne}] + [{operandTwo}] = [{result}]
         </p>
         <p>
-          <DigitOne onClick={() => getAction('Direction_one')}/> | 
-          <DigitTwo onClick={() => getAction('Direction_two')}/> ||
-          <DigitThree onClick={() => getAction('Direction_three')}/> ||
-          <ActionPlus onClick={() => getAction('Direction_plus')}/> || 
-          <ActionEqual onClick={() => getAction('Direction_equal')}/>
+           | 
+          <DigitOne onClick={() => getAction('Direction_one')}/>&nbsp;|
+          <DigitTwo onClick={() => getAction('Direction_two')}/>&nbsp;|
+          <DigitThree onClick={() => getAction('Direction_three')}/>&nbsp;|
+          <ActionPlus onClick={() => getAction('Direction_plus')}/>&nbsp;|
+          <ActionEqual onClick={() => getAction('Direction_equal')}/>&nbsp;|
+          <ActionClear onClick={() => getAction('Direction_clear')}/>&nbsp;|
         </p>
         <p>
           ----
@@ -159,5 +191,6 @@ function DigitThree({onClick}) {return (<button onClick={onClick}>[ 3 ]</button>
 //
 function ActionPlus({onClick}) {return (<button onClick={onClick}>[ + ]</button>);}
 function ActionEqual({onClick}) {return (<button onClick={onClick}>[ = ]</button>);}
+function ActionClear({onClick}) {return (<button onClick={onClick}>[ CA ]</button>);}
 
 export default AppVal;
