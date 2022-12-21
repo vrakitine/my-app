@@ -7,6 +7,44 @@ import { useState } from 'react';
 //https://reactjs.org/docs/context.html
 //https://reactjs.org/docs/hooks-overview.html#building-your-own-hooks
 
+const vaScript = {
+  "Action_init":{
+     "Direction_one":"Action_operand_1_attach_one",
+     "Direction_two":"Action_operand_1_attach_two",
+     "Direction_plus":"Action_init",
+     "Direction_equal":"Action_init"
+  },
+  "Action_operand_1_attach_one":{
+     "Direction_one":"Action_operand_1_attach_one",
+     "Direction_two":"Action_operand_1_attach_two",
+     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
+     "Direction_equal":"Error_10__Second_operand_is_missing"
+  },
+  "Action_operand_1_attach_two":{
+    "Direction_one":"Action_operand_1_attach_one",
+    "Direction_two":"Action_operand_1_attach_two",
+    "Direction_plus":"Action_waiting_for_operand_2_for_plus",
+    "Direction_equal":"Error_10__Second_operand_is_missing"
+  },
+  "Action_waiting_for_operand_2_for_plus":{
+    "Direction_one":"Action_operand_2_attach_one",
+    "Direction_two":"Action_operand_2_attach_two",
+    "Direction_plus":"Action_waiting_for_operand_2_for_plus",
+    "Direction_equal":"Error_10__Second_operand_is_missing"
+  },
+  "Action_operand_2_attach_one":{
+    "Direction_one":"Action_operand_2_attach_one",
+    "Direction_two":"Action_operand_2_attach_two",
+    "Direction_plus":"Action_show_result",
+    "Direction_equal":"Action_show_result"
+  },
+  "Action_operand_2_attach_two":{
+    "Direction_one":"Action_operand_2_attach_one",
+    "Direction_two":"Action_operand_2_attach_two",
+    "Direction_plus":"Action_show_result",
+    "Direction_equal":"Action_show_result"
+  }
+};
 
 function AppVal() {
 
@@ -18,70 +56,17 @@ function AppVal() {
   const [result, setResult] = useState('');
 
 
-  const vaScript = {
-      "Action_init":{
-         "Direction_one":"Action_operand_1_attach_one",
-         "Direction_two":"Action_operand_1_attach_two",
-         "Direction_plus":"Action_init",
-         "Direction_equal":"Action_init"
-      },
-      "Action_operand_1_attach_one":{
-         "Direction_one":"Action_operand_1_attach_one",
-         "Direction_two":"Action_operand_1_attach_two",
-         "Direction_plus":"Action_waiting_for_operand_2_for_plus",
-         "Direction_equal":"Error_10__Second_operand_is_missing"
-      },
-      "Action_operand_1_attach_two":{
-        "Direction_one":"Action_operand_1_attach_one",
-        "Direction_two":"Action_operand_1_attach_two",
-        "Direction_plus":"Action_waiting_for_operand_2_for_plus",
-        "Direction_equal":"Error_10__Second_operand_is_missing"
-      },
-      "Action_waiting_for_operand_2_for_plus":{
-        "Direction_one":"Action_operand_2_attach_one",
-        "Direction_two":"Action_operand_2_attach_two",
-        "Direction_plus":"Action_waiting_for_operand_2_for_plus",
-        "Direction_equal":"Error_10__Second_operand_is_missing"
-      },
-      "Action_operand_2_attach_one":{
-        "Direction_one":"Action_operand_2_attach_one",
-        "Direction_two":"Action_operand_2_attach_two",
-        "Direction_plus":"Action_show_result",
-        "Direction_equal":"Action_show_result"
-      },
-      "Action_operand_2_attach_two":{
-        "Direction_one":"Action_operand_2_attach_one",
-        "Direction_two":"Action_operand_2_attach_two",
-        "Direction_plus":"Action_show_result",
-        "Direction_equal":"Action_show_result"
-      }
-    };
-
   function getAction(direction) {
     console.log('Click!!!'); 
     console.log(direction); 
      
-    //
-    setDirectionAction(direction)
-    setPreviousAction(currentAction);
-    var previous = previousAction;
-    setCurrentAction('unknownAction')
+    const nextAction = vaScript[currentAction][direction];
 
-
-    if(vaScript.hasOwnProperty(previous)){
-
-      var current = vaScript[previous][direction];
-      setCurrentAction(current) 
-    }
-    if(!vaScript.hasOwnProperty(previous)){
-      alert('Fatal error: [' + previous + '] is not a key of vaScript')
-    }
-
-    if(vaScript.hasOwnProperty(current)){
+    if(vaScript.hasOwnProperty(nextAction)){
   
-      console.log('currentAction in case:[' + current +']');
+      console.log('currentAction in case:[' + nextAction +']');
 
-      switch(current) {
+      switch(nextAction) {
         case "Action_init":
           // do nothing
           break;
@@ -101,29 +86,28 @@ function AppVal() {
           setOperandTwo(operandTwo + '2')
           break;
         default:
-          console.log('Error: Unknown action in default:[' + current + ']')
+          console.log('Error: Unknown action in default:[' + nextAction + ']')
       }
-
-
-      return;
-    }
-    if(!(vaScript.hasOwnProperty(current))){
-      switch(current) {
+    } else {
+      switch(nextAction) {
         case "Action_show_result":
           var temp = +operandOne + +operandTwo;
           setResult(temp);
           break;
           default:
-            console.log('Error: [' + current + ']')
+            console.log('Error: [' + nextAction + ']')
         }
 
 
-      console.log('Stop --> [' + current + ']')
+      console.log('Stop --> [' + nextAction + ']')
     }
 
+    setDirectionAction(direction);
+    setPreviousAction(currentAction);
+    setCurrentAction(nextAction);
+    
+
   }
-
-
   return (
     <div className="App">
       <header className="App-header">
