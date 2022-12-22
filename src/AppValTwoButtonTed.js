@@ -2,6 +2,14 @@ import './App.css';
 import { useState } from 'react';
 // Playing in https://beta.reactjs.org/learn 
 
+// C:\Users\val\ReactProjects\my-app\src\vaop\va-scripts\va-script-10.json
+//import { vaScript } from "./vaop/va-scripts/va-script-10.json";
+// Playing in https://beta.reactjs.org/learn 
+// import { dashboard } from "data/data_can.json";
+//https://reactjs.org/docs/context.html
+//https://reactjs.org/docs/hooks-overview.html#building-your-own-hooks
+
+
 function MyButtonOne() {
   const [count_1, setCount] = useState(0);
 
