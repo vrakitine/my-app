@@ -36,6 +36,15 @@
   color: hsl(60, 100%, 50%);
 }
 
+.App-header-trace {
+  background-color: #434956;
+  color: hsl(205, 100%, 50%);
+}
+
+.App-header-trace-action {
+  color: hsl(205, 44%, 90%);
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
