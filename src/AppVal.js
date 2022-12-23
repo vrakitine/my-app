@@ -15,7 +15,7 @@ const vaScript = {
      "Direction_two":"Action_operand_1_attach_two",
      "Direction_three":"Action_operand_1_attach_three",  
      "Direction_plus":"Action_waiting_for_operand_2_for_plus",
-     "Direction_equal":"Error_10__Second_operand_is_missing",
+     "Direction_equal":"Action_warning_10__Second_operand_is_missing",
      "Direction_clear":"Action_clear"
   },
   "Action_operand_1_attach_two":{
@@ -23,7 +23,7 @@ const vaScript = {
     "Direction_two":"Action_operand_1_attach_two",
     "Direction_three":"Action_operand_1_attach_three",  
     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
-    "Direction_equal":"Error_10__Second_operand_is_missing",
+    "Direction_equal":"Action_warning_10__Second_operand_is_missing",
     "Direction_clear":"Action_clear"
   },
   "Action_operand_1_attach_three":{
@@ -31,7 +31,15 @@ const vaScript = {
     "Direction_two":"Action_operand_1_attach_two",
     "Direction_three":"Action_operand_1_attach_three",  
     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
-    "Direction_equal":"Error_10__Second_operand_is_missing",
+    "Direction_equal":"Action_warning_10__Second_operand_is_missing",
+    "Direction_clear":"Action_clear"
+  },
+  "Action_warning_10__Second_operand_is_missing":{
+    "Direction_one":"Action_operand_1_attach_one",
+    "Direction_two":"Action_operand_1_attach_two",
+    "Direction_three":"Action_operand_1_attach_three",  
+    "Direction_plus":"Action_waiting_for_operand_2_for_plus",
+    "Direction_equal":"Action_warning_10__Second_operand_is_missing",
     "Direction_clear":"Action_clear"
   },
   "Action_waiting_for_operand_2_for_plus":{
@@ -39,7 +47,7 @@ const vaScript = {
     "Direction_two":"Action_operand_2_attach_two",
     "Direction_three":"Action_operand_2_attach_three",  
     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
-    "Direction_equal":"Error_10__Second_operand_is_missing",
+    "Direction_equal":"Action_warning_10__Second_operand_is_missing",
     "Direction_clear":"Action_clear"
   },
   "Action_operand_2_attach_one":{
@@ -92,14 +100,17 @@ function AppVal() {
   const [operandOne, setOperandOne] = useState('');
   const [operandTwo, setOperandTwo] = useState('');
   const [result, setResult] = useState('');
+  const [warningMsg, setWarningMsg] = useState('');
 
 
   function getAction(direction) {
     console.log('Click!!!'); 
     console.log(direction); 
-     
-    const nextAction = vaScript[currentAction][direction];
 
+    setWarningMsg('');
+
+    const nextAction = vaScript[currentAction][direction];
+  
     if(vaScript.hasOwnProperty(nextAction)){
   
       console.log('currentAction in case:[' + nextAction +']');
@@ -138,6 +149,9 @@ function AppVal() {
         case "Action_operand_2_attach_three":
           setOperandTwo(operandTwo + '3')
           break;
+        case "Action_warning_10__Second_operand_is_missing":
+          setWarningMsg('Second operand is missing')
+          break;
         default:
           console.log('Error: Unknown action in default:[' + nextAction + ']')
       }
@@ -163,7 +177,10 @@ function AppVal() {
       <header className="App-header">
         <h2>Mini Calculator</h2>
         <p>
-          [{operandOne}] + [{operandTwo}] = [{result}]
+          [{operandOne}] + [{operandTwo}] = [{result}] 
+        </p>
+        <p>
+        <small>{warningMsg}</small>
         </p>
         <p>
            | 
