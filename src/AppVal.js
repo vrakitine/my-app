@@ -35,10 +35,10 @@ const vaScript = {
     "Direction_clear":"Action_clear"
   },
   "Action_warning_10__Second_operand_is_missing":{
-    "Direction_one":"Action_operand_1_attach_one",
-    "Direction_two":"Action_operand_1_attach_two",
-    "Direction_three":"Action_operand_1_attach_three",  
-    "Direction_plus":"Action_waiting_for_operand_2_for_plus",
+    "Direction_one":"Action_operand_2_attach_one",
+    "Direction_two":"Action_operand_2_attach_two",
+    "Direction_three":"Action_operand_2_attach_three",  
+    "Direction_plus":"Action_warning_10__Second_operand_is_missing",
     "Direction_equal":"Action_warning_10__Second_operand_is_missing",
     "Direction_clear":"Action_clear"
   },
@@ -162,34 +162,43 @@ function AppVal() {
             console.log('Error: [' + nextAction + ']')
         }
 
-
       console.log('Stop --> [' + nextAction + ']')
     }
 
     setDirectionAction(direction);
     setPreviousAction(currentAction);
     setCurrentAction(nextAction);
-    
-
   }
   return (
     <div className="App">
       <header className="App-header">
         <h2>Mini Calculator</h2>
+        <p class = "App-header-warning">
+          <small>{warningMsg}</small>
+        </p>
         <p>
           [{operandOne}] + [{operandTwo}] = [{result}] 
         </p>
-        <p class = "App-header-warning">
-        <small>{warningMsg}</small>
+        <p> 
+          <DigitOne onClick={() => getAction('Direction_one')}/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <DigitTwo onClick={() => getAction('Direction_two')}/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <DigitThree onClick={() => getAction('Direction_three')}/><br/><br/>
+          <ActionPlus onClick={() => getAction('Direction_plus')}/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <ActionEqual onClick={() => getAction('Direction_equal')}/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <ActionClear onClick={() => getAction('Direction_clear')}/>
         </p>
-        <p>
-           | 
-          <DigitOne onClick={() => getAction('Direction_one')}/>&nbsp;|
-          <DigitTwo onClick={() => getAction('Direction_two')}/>&nbsp;|
-          <DigitThree onClick={() => getAction('Direction_three')}/>&nbsp;|
-          <ActionPlus onClick={() => getAction('Direction_plus')}/>&nbsp;|
-          <ActionEqual onClick={() => getAction('Direction_equal')}/>&nbsp;|
-          <ActionClear onClick={() => getAction('Direction_clear')}/>&nbsp;|
+        <p class = "App-header-trace">
+            va-trace:<br/>
+            <small>previous: </small>[<span class="App-header-trace-action">{previousAction}</span>]<br/>
+            <small>direction: </small>[<span class="App-header-trace-action">{directionAction}</span>]<br/>
+            <small>current: </small>[<span class="App-header-trace-action">{currentAction}</span>]
+            <br/>
+            <br/>
+            open source code: <a class = "App-header-link" 
+        href="https://github.com/vrakitine/my-app" 
+        target="_blank"><span>github.com/vrakitine/my-app</span></a>
+            <br/>
+            &nbsp;
         </p>
         <p>
         <img src="v-agent_32x32.png" alt="v-agent" width="32" height="32" /> &nbsp;  
@@ -197,20 +206,17 @@ function AppVal() {
         href="https://vaop.notion.site/82c7784f41af4739bf1a185fc4e12bbc" 
         target="_blank"><span>VAOP</span></a>
         </p>
-        <p>
-         <small>previousAction:</small>[{previousAction}] ==&gt; <small>directionAction:</small>[{directionAction}] ==&gt; <small>currentAction:</small>[{currentAction}]
-        </p>
       </header>
     </div>
   );
 }
 
-function DigitOne({onClick}) {return (<button onClick={onClick}>[ 1 ]</button>);}
-function DigitTwo({onClick}) {return (<button onClick={onClick}>[ 2 ]</button>);}
-function DigitThree({onClick}) {return (<button onClick={onClick}>[ 3 ]</button>);}
+function DigitOne({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>1</b>&nbsp;&nbsp;&nbsp;</button>);}
+function DigitTwo({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>2</b>&nbsp;&nbsp;&nbsp;</button>);}
+function DigitThree({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>3</b>&nbsp;&nbsp;&nbsp;</button>);}
 //
-function ActionPlus({onClick}) {return (<button onClick={onClick}>[ + ]</button>);}
-function ActionEqual({onClick}) {return (<button onClick={onClick}>[ = ]</button>);}
-function ActionClear({onClick}) {return (<button onClick={onClick}>[ CA ]</button>);}
+function ActionPlus({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>+</b>&nbsp;&nbsp;&nbsp;</button>);}
+function ActionEqual({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>=</b>&nbsp;&nbsp;&nbsp;</button>);}
+function ActionClear({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>CA</b>&nbsp;&nbsp;&nbsp;</button>);}
 
 export default AppVal;
