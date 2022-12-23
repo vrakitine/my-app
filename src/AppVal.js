@@ -162,15 +162,12 @@ function AppVal() {
             console.log('Error: [' + nextAction + ']')
         }
 
-
       console.log('Stop --> [' + nextAction + ']')
     }
 
     setDirectionAction(direction);
     setPreviousAction(currentAction);
     setCurrentAction(nextAction);
-    
-
   }
   return (
     <div className="App">
@@ -192,9 +189,14 @@ function AppVal() {
         </p>
         <p class = "App-header-trace">
             va-trace:<br/>
-            <small>previous:</small>[<span class="App-header-trace-action">{previousAction}</span>]&nbsp;==&gt;&nbsp;
-            <small>direction:</small>[<span class="App-header-trace-action">{directionAction}</span>]&nbsp;==&gt;&nbsp;
-            <small>current:</small>[<span class="App-header-trace-action">{currentAction}</span>]
+            <small>previous: </small>[<span class="App-header-trace-action">{previousAction}</span>]<br/>
+            <small>direction: </small>[<span class="App-header-trace-action">{directionAction}</span>]<br/>
+            <small>current: </small>[<span class="App-header-trace-action">{currentAction}</span>]
+            <br/>
+            <br/>
+            open source code: <a class = "App-header-link" 
+        href="https://github.com/vrakitine/my-app" 
+        target="_blank"><span>github.com/vrakitine/my-app</span></a>
             <br/>
             &nbsp;
         </p>
