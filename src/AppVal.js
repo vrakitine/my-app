@@ -179,7 +179,7 @@ function AppVal() {
         <p>
           [{operandOne}] + [{operandTwo}] = [{result}] 
         </p>
-        <p>
+        <p class = "App-header-warning">
         <small>{warningMsg}</small>
         </p>
         <p>
@@ -192,7 +192,10 @@ function AppVal() {
           <ActionClear onClick={() => getAction('Direction_clear')}/>&nbsp;|
         </p>
         <p>
-        <img src="v-agent_32x32.png" alt="v-agent" width="32" height="32" /> &nbsp;  Powered by VAOP  
+        <img src="v-agent_32x32.png" alt="v-agent" width="32" height="32" /> &nbsp;  
+        Powered by <a class = "App-header-link" 
+        href="https://vaop.notion.site/82c7784f41af4739bf1a185fc4e12bbc" 
+        target="_blank"><span>VAOP</span></a>
         </p>
         <p>
          <small>previousAction:</small>[{previousAction}] ==&gt; <small>directionAction:</small>[{directionAction}] ==&gt; <small>currentAction:</small>[{currentAction}]
