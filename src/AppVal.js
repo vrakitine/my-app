@@ -213,8 +213,13 @@ function AppVal() {
                 <br/>
                 &nbsp;
             </p>
-            <p>
-              vaScript
+            <p className = "App-header-trace">
+              va-script
+              <pre>
+                <code>
+                {JSON.stringify(vaScript, null, 2) }
+                </code>
+              </pre>
             </p>
           </div>
         }
@@ -236,6 +241,6 @@ function DigitThree({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&n
 function ActionPlus({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>+</b>&nbsp;&nbsp;&nbsp;</button>);}
 function ActionEqual({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>=</b>&nbsp;&nbsp;&nbsp;</button>);}
 function ActionClear({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>CA</b>&nbsp;&nbsp;&nbsp;</button>);}
-function ShowHideVaTrace({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>Show / Hide va-trace</b>&nbsp;&nbsp;&nbsp;</button>);}
+function ShowHideVaTrace({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>Show/Hide va-trace & va-script</b>&nbsp;&nbsp;&nbsp;</button>);}
 
 export default AppVal;
