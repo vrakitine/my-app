@@ -1,6 +1,12 @@
 import './App.css';
 import { useState } from 'react';
 
+// how to show and hide components in react
+// https://www.pluralsight.com/guides/how-to-show-and-hide-reactjs-components
+// how to show and hide div on button click in react js
+// https://youtu.be/uXk62ZgPH-4 
+
+
 const vaScript = {
   "Action_init":{
      "Direction_one":"Action_operand_1_attach_one",
@@ -102,6 +108,8 @@ function AppVal() {
   const [result, setResult] = useState('');
   const [warningMsg, setWarningMsg] = useState('');
 
+  const [show, setShow] = useState(true);
+  
 
   function getAction(direction) {
     console.log('Click!!!'); 
@@ -187,19 +195,25 @@ function AppVal() {
           <ActionEqual onClick={() => getAction('Direction_equal')}/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           <ActionClear onClick={() => getAction('Direction_clear')}/>
         </p>
-        <p class = "App-header-trace">
-            va-trace:<br/>
-            <small>previous: </small>[<span class="App-header-trace-action">{previousAction}</span>]<br/>
-            <small>direction: </small>[<span class="App-header-trace-action">{directionAction}</span>]<br/>
-            <small>current: </small>[<span class="App-header-trace-action">{currentAction}</span>]
-            <br/>
-            <br/>
-            open source code: <a class = "App-header-link" 
-        href="https://github.com/vrakitine/my-app" 
-        target="_blank"><span>github.com/vrakitine/my-app</span></a>
-            <br/>
-            &nbsp;
+        <p>
+          <button type="button" onClick={()=>setShow(!show)}
+          >Show / Hide</button>
         </p>
+        {show &&
+          <p class = "App-header-trace">
+              va-trace:<br/>
+              <small>previous: </small>[<span class="App-header-trace-action">{previousAction}</span>]<br/>
+              <small>direction: </small>[<span class="App-header-trace-action">{directionAction}</span>]<br/>
+              <small>current: </small>[<span class="App-header-trace-action">{currentAction}</span>]
+              <br/>
+              <br/>
+              open source code: <a class = "App-header-link" 
+          href="https://github.com/vrakitine/my-app" 
+          target="_blank"><span>github.com/vrakitine/my-app</span></a>
+              <br/>
+              &nbsp;
+          </p>
+        }
         <p>
         <img src="v-agent_32x32.png" alt="v-agent" width="32" height="32" /> &nbsp;  
         Powered by <a class = "App-header-link" 
