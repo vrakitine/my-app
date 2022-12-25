@@ -108,7 +108,7 @@ function AppVal() {
   const [result, setResult] = useState('');
   const [warningMsg, setWarningMsg] = useState('');
 
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   
 
   function getAction(direction) {
@@ -196,29 +196,33 @@ function AppVal() {
           <ActionClear onClick={() => getAction('Direction_clear')}/>
         </p>
         <p>
-          <button type="button" onClick={()=>setShow(!show)}
-          >Show / Hide</button>
+          <ShowHideVaTrace onClick={()=>setShow(!show)}/>
         </p>
         {show &&
-          <p class = "App-header-trace">
-              va-trace:<br/>
-              <small>previous: </small>[<span class="App-header-trace-action">{previousAction}</span>]<br/>
-              <small>direction: </small>[<span class="App-header-trace-action">{directionAction}</span>]<br/>
-              <small>current: </small>[<span class="App-header-trace-action">{currentAction}</span>]
-              <br/>
-              <br/>
-              open source code: <a class = "App-header-link" 
-          href="https://github.com/vrakitine/my-app" 
-          target="_blank"><span>github.com/vrakitine/my-app</span></a>
-              <br/>
-              &nbsp;
-          </p>
+          <div>
+            <p class = "App-header-trace">
+                va-trace:<br/>
+                <small>previous: </small>[<span class="App-header-trace-action">{previousAction}</span>]<br/>
+                <small>direction: </small>[<span class="App-header-trace-action">{directionAction}</span>]<br/>
+                <small>current: </small>[<span class="App-header-trace-action">{currentAction}</span>]
+                <br/>
+                <br/>
+                open source code: <a class = "App-header-link" 
+            href="https://github.com/vrakitine/my-app" 
+            target="_blank"><span>github.com/vrakitine/my-app</span></a>
+                <br/>
+                &nbsp;
+            </p>
+            <p>
+              vaScript
+            </p>
+          </div>
         }
         <p>
-        <img src="v-agent_32x32.png" alt="v-agent" width="32" height="32" /> &nbsp;  
-        Powered by <a class = "App-header-link" 
-        href="https://vaop.notion.site/82c7784f41af4739bf1a185fc4e12bbc" 
-        target="_blank"><span>VAOP</span></a>
+          <img src="v-agent_32x32.png" alt="v-agent" width="32" height="32" /> &nbsp;  
+          Powered by <a class = "App-header-link" 
+          href="https://vaop.notion.site/82c7784f41af4739bf1a185fc4e12bbc" 
+          target="_blank"><span>VAOP</span></a>
         </p>
       </header>
     </div>
@@ -232,5 +236,6 @@ function DigitThree({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&n
 function ActionPlus({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>+</b>&nbsp;&nbsp;&nbsp;</button>);}
 function ActionEqual({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>=</b>&nbsp;&nbsp;&nbsp;</button>);}
 function ActionClear({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>CA</b>&nbsp;&nbsp;&nbsp;</button>);}
+function ShowHideVaTrace({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>Show / Hide</b>&nbsp;&nbsp;&nbsp;</button>);}
 
 export default AppVal;
