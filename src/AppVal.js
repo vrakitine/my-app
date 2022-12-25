@@ -108,7 +108,8 @@ function AppVal() {
   const [result, setResult] = useState('');
   const [warningMsg, setWarningMsg] = useState('');
 
-  const [show, setShow] = useState(false);
+  const [showVaTrace, setShowVaTrace] = useState(false);
+  const [showWarning, setShowWarning] = useState(false);
   
 
   function getAction(direction) {
@@ -116,6 +117,7 @@ function AppVal() {
     console.log(direction); 
 
     setWarningMsg('');
+    setShowWarning(false)
 
     const nextAction = vaScript[currentAction][direction];
   
@@ -158,7 +160,8 @@ function AppVal() {
           setOperandTwo(operandTwo + '3')
           break;
         case "Action_warning_10__Second_operand_is_missing":
-          setWarningMsg('Second operand is missing')
+          setWarningMsg('Second operand is missing');
+          setShowWarning(true);
           break;
         default:
           console.log('Error: Unknown action in default:[' + nextAction + ']')
@@ -181,9 +184,11 @@ function AppVal() {
     <div className="App">
       <header className="App-header">
         <h2>Mini Calculator</h2>
-        <p className = "App-header-warning">
-          <small>{warningMsg}</small>
-        </p>
+        {showWarning &&
+          <p className = "App-header-warning">
+            <small>{warningMsg}</small>
+          </p>
+        }         
         <p>
           [{operandOne}] + [{operandTwo}] = [{result}] 
         </p>
@@ -196,12 +201,12 @@ function AppVal() {
           <ActionClear onClick={() => getAction('Direction_clear')}/>
         </p>
         <p>
-          <ShowHideVaTrace onClick={()=>setShow(!show)}/>
+          <ShowHideVaTrace onClick={()=>setShowVaTrace(!showVaTrace)}/>
         </p>
-        {show &&
+        {showVaTrace &&
           <div>
             <p className = "App-header-trace">
-                va-trace:<br/>
+                === va-trace ===<br/><br/>
                 <small>previous: </small>[<span className="App-header-trace-action">{previousAction}</span>]<br/>
                 <small>direction: </small>[<span className="App-header-trace-action">{directionAction}</span>]<br/>
                 <small>current: </small>[<span className="App-header-trace-action">{currentAction}</span>]
@@ -214,7 +219,8 @@ function AppVal() {
                 &nbsp;
             </p>
             <p className = "App-header-trace">
-              va-script
+              === va-script ===<br/><br/>
+              v-agent is following this script. When you push any button, <br/>v-agent defined Current Action based on Previous Action and Direction.
               <pre>
                 <code>
                 {JSON.stringify(vaScript, null, 2) }
