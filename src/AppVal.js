@@ -181,7 +181,7 @@ function AppVal() {
     <div className="App">
       <header className="App-header">
         <h2>Mini Calculator</h2>
-        <p class = "App-header-warning">
+        <p className = "App-header-warning">
           <small>{warningMsg}</small>
         </p>
         <p>
@@ -200,14 +200,14 @@ function AppVal() {
         </p>
         {show &&
           <div>
-            <p class = "App-header-trace">
+            <p className = "App-header-trace">
                 va-trace:<br/>
-                <small>previous: </small>[<span class="App-header-trace-action">{previousAction}</span>]<br/>
-                <small>direction: </small>[<span class="App-header-trace-action">{directionAction}</span>]<br/>
-                <small>current: </small>[<span class="App-header-trace-action">{currentAction}</span>]
+                <small>previous: </small>[<span className="App-header-trace-action">{previousAction}</span>]<br/>
+                <small>direction: </small>[<span className="App-header-trace-action">{directionAction}</span>]<br/>
+                <small>current: </small>[<span className="App-header-trace-action">{currentAction}</span>]
                 <br/>
                 <br/>
-                open source code: <a class = "App-header-link" 
+                open source code: <a className = "App-header-link" 
             href="https://github.com/vrakitine/my-app" 
             target="_blank"><span>github.com/vrakitine/my-app</span></a>
                 <br/>
@@ -220,7 +220,7 @@ function AppVal() {
         }
         <p>
           <img src="v-agent_32x32.png" alt="v-agent" width="32" height="32" /> &nbsp;  
-          Powered by <a class = "App-header-link" 
+          Powered by <a className = "App-header-link" 
           href="https://vaop.notion.site/82c7784f41af4739bf1a185fc4e12bbc" 
           target="_blank"><span>VAOP</span></a>
         </p>
