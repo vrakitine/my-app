@@ -1,6 +1,12 @@
 import './App.css';
 import { useState } from 'react';
 
+// how to show and hide components in react
+// https://www.pluralsight.com/guides/how-to-show-and-hide-reactjs-components
+// how to show and hide div on button click in react js
+// https://youtu.be/uXk62ZgPH-4 
+
+
 const vaScript = {
   "Action_init":{
      "Direction_one":"Action_operand_1_attach_one",
@@ -102,12 +108,16 @@ function AppVal() {
   const [result, setResult] = useState('');
   const [warningMsg, setWarningMsg] = useState('');
 
+  const [showVaTrace, setShowVaTrace] = useState(false);
+  const [showWarning, setShowWarning] = useState(false);
+  
 
   function getAction(direction) {
     console.log('Click!!!'); 
     console.log(direction); 
 
     setWarningMsg('');
+    setShowWarning(false)
 
     const nextAction = vaScript[currentAction][direction];
   
@@ -150,7 +160,8 @@ function AppVal() {
           setOperandTwo(operandTwo + '3')
           break;
         case "Action_warning_10__Second_operand_is_missing":
-          setWarningMsg('Second operand is missing')
+          setWarningMsg('Second operand is missing');
+          setShowWarning(true);
           break;
         default:
           console.log('Error: Unknown action in default:[' + nextAction + ']')
@@ -173,9 +184,11 @@ function AppVal() {
     <div className="App">
       <header className="App-header">
         <h2>Mini Calculator</h2>
-        <p class = "App-header-warning">
-          <small>{warningMsg}</small>
-        </p>
+        {showWarning &&
+          <p className = "App-header-warning">
+            <small>{warningMsg}</small>
+          </p>
+        }         
         <p>
           [{operandOne}] + [{operandTwo}] = [{result}] 
         </p>
@@ -187,24 +200,40 @@ function AppVal() {
           <ActionEqual onClick={() => getAction('Direction_equal')}/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           <ActionClear onClick={() => getAction('Direction_clear')}/>
         </p>
-        <p class = "App-header-trace">
-            va-trace:<br/>
-            <small>previous: </small>[<span class="App-header-trace-action">{previousAction}</span>]<br/>
-            <small>direction: </small>[<span class="App-header-trace-action">{directionAction}</span>]<br/>
-            <small>current: </small>[<span class="App-header-trace-action">{currentAction}</span>]
-            <br/>
-            <br/>
-            open source code: <a class = "App-header-link" 
-        href="https://github.com/vrakitine/my-app" 
-        target="_blank"><span>github.com/vrakitine/my-app</span></a>
-            <br/>
-            &nbsp;
-        </p>
         <p>
-        <img src="v-agent_32x32.png" alt="v-agent" width="32" height="32" /> &nbsp;  
-        Powered by <a class = "App-header-link" 
-        href="https://vaop.notion.site/82c7784f41af4739bf1a185fc4e12bbc" 
-        target="_blank"><span>VAOP</span></a>
+          <ShowHideVaTrace onClick={()=>setShowVaTrace(!showVaTrace)}/>
+        </p>
+        {showVaTrace &&
+          <div>
+            <p className = "App-header-trace">
+                === va-trace ===<br/><br/>
+                <small>previous: </small>[<span className="App-header-trace-action">{previousAction}</span>]<br/>
+                <small>direction: </small>[<span className="App-header-trace-action">{directionAction}</span>]<br/>
+                <small>current: </small>[<span className="App-header-trace-action">{currentAction}</span>]
+                <br/>
+                <br/>
+                open source code: <a className = "App-header-link" 
+            href="https://github.com/vrakitine/my-app" 
+            target="_blank"><span>github.com/vrakitine/my-app</span></a>
+                <br/>
+                &nbsp;
+            </p>
+            <p className = "App-header-trace">
+              === va-script ===<br/><br/>
+              v-agent is following this script. When you push any button, <br/>v-agent defined Current Action based on Previous Action and Direction.
+              <pre>
+                <code>
+                {JSON.stringify(vaScript, null, 2) }
+                </code>
+              </pre>
+            </p>
+          </div>
+        }
+        <p>
+          <img src="v-agent_32x32.png" alt="v-agent" width="32" height="32" /> &nbsp;  
+          Powered by <a className = "App-header-link" 
+          href="https://vaop.notion.site/82c7784f41af4739bf1a185fc4e12bbc" 
+          target="_blank"><span>VAOP</span></a>
         </p>
       </header>
     </div>
@@ -218,5 +247,6 @@ function DigitThree({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&n
 function ActionPlus({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>+</b>&nbsp;&nbsp;&nbsp;</button>);}
 function ActionEqual({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>=</b>&nbsp;&nbsp;&nbsp;</button>);}
 function ActionClear({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>CA</b>&nbsp;&nbsp;&nbsp;</button>);}
+function ShowHideVaTrace({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>Show/Hide va-trace & va-script</b>&nbsp;&nbsp;&nbsp;</button>);}
 
 export default AppVal;
