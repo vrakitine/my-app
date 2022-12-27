@@ -1,102 +1,11 @@
 import './App.css';
 import { useState } from 'react';
+import vaScript from './vaop/va-scripts/va-script-10.json';
 
 // how to show and hide components in react
 // https://www.pluralsight.com/guides/how-to-show-and-hide-reactjs-components
 // how to show and hide div on button click in react js
 // https://youtu.be/uXk62ZgPH-4 
-
-
-const vaScript = {
-  "Action_init":{
-     "Direction_one":"Action_operand_1_attach_one",
-     "Direction_two":"Action_operand_1_attach_two",     
-     "Direction_three":"Action_operand_1_attach_three",     
-     "Direction_plus":"Action_init",
-     "Direction_equal":"Action_init",
-     "Direction_clear":"Action_clear"
-  },
-  "Action_operand_1_attach_one":{
-     "Direction_one":"Action_operand_1_attach_one",
-     "Direction_two":"Action_operand_1_attach_two",
-     "Direction_three":"Action_operand_1_attach_three",  
-     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
-     "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-     "Direction_clear":"Action_clear"
-  },
-  "Action_operand_1_attach_two":{
-    "Direction_one":"Action_operand_1_attach_one",
-    "Direction_two":"Action_operand_1_attach_two",
-    "Direction_three":"Action_operand_1_attach_three",  
-    "Direction_plus":"Action_waiting_for_operand_2_for_plus",
-    "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
-  },
-  "Action_operand_1_attach_three":{
-    "Direction_one":"Action_operand_1_attach_one",
-    "Direction_two":"Action_operand_1_attach_two",
-    "Direction_three":"Action_operand_1_attach_three",  
-    "Direction_plus":"Action_waiting_for_operand_2_for_plus",
-    "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
-  },
-  "Action_warning_10__Second_operand_is_missing":{
-    "Direction_one":"Action_operand_2_attach_one",
-    "Direction_two":"Action_operand_2_attach_two",
-    "Direction_three":"Action_operand_2_attach_three",  
-    "Direction_plus":"Action_warning_10__Second_operand_is_missing",
-    "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
-  },
-  "Action_waiting_for_operand_2_for_plus":{
-    "Direction_one":"Action_operand_2_attach_one",
-    "Direction_two":"Action_operand_2_attach_two",
-    "Direction_three":"Action_operand_2_attach_three",  
-    "Direction_plus":"Action_waiting_for_operand_2_for_plus",
-    "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
-  },
-  "Action_operand_2_attach_one":{
-    "Direction_one":"Action_operand_2_attach_one",
-    "Direction_two":"Action_operand_2_attach_two",
-    "Direction_three":"Action_operand_2_attach_three",  
-    "Direction_plus":"Action_show_result",
-    "Direction_equal":"Action_show_result",
-    "Direction_clear":"Action_clear"
-  },
-  "Action_operand_2_attach_two":{
-    "Direction_one":"Action_operand_2_attach_one",
-    "Direction_two":"Action_operand_2_attach_two",
-    "Direction_three":"Action_operand_2_attach_three",  
-    "Direction_plus":"Action_show_result",
-    "Direction_equal":"Action_show_result",
-    "Direction_clear":"Action_clear"
-   },
-  "Action_operand_2_attach_three":{
-    "Direction_one":"Action_operand_2_attach_one",
-    "Direction_two":"Action_operand_2_attach_two",
-    "Direction_three":"Action_operand_2_attach_three",  
-    "Direction_plus":"Action_show_result",
-    "Direction_equal":"Action_show_result",
-    "Direction_clear":"Action_clear"
-   },
-   "Action_clear":{
-    "Direction_one":"Action_operand_1_attach_one",
-    "Direction_two":"Action_operand_1_attach_two",
-    "Direction_three":"Action_operand_1_attach_three",  
-    "Direction_plus":"Action_init",
-    "Direction_equal":"Action_init",
-    "Direction_clear":"Action_clear"
-   },
-   "Action_show_result":{
-    "Direction_one":"Action_clear",
-    "Direction_two":"Action_clear",
-    "Direction_three":"Action_clear",  
-    "Direction_plus":"Action_clear",
-    "Direction_equal":"Action_clear",
-    "Direction_clear":"Action_clear"
-   }
-  };
 
 function AppVal() {
 
