@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import vaScript from './vaop/va-scripts/va-script-10.json';
+//import vaScript from './vaop/va-scripts/va-script-10-xstate-10.json';
 
 // how to show and hide components in react
 // https://www.pluralsight.com/guides/how-to-show-and-hide-reactjs-components
