@@ -102,12 +102,12 @@ function AppVal() {
           [{operandOne}] + [{operandTwo}] = [{result}] 
         </p>
         <p> 
-          <DigitOne onClick={() => getAction('Direction_one')}/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-          <DigitTwo onClick={() => getAction('Direction_two')}/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-          <DigitThree onClick={() => getAction('Direction_three')}/><br/><br/>
-          <ActionPlus onClick={() => getAction('Direction_plus')}/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-          <ActionEqual onClick={() => getAction('Direction_equal')}/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-          <ActionClear onClick={() => getAction('Direction_clear')}/>
+          <CalcButton onClick={() => getAction('Direction_one')} buttonName = '1'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <CalcButton onClick={() => getAction('Direction_two')} buttonName = '2'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <CalcButton onClick={() => getAction('Direction_three')} buttonName = '3'/><br/><br/>
+          <CalcButton onClick={() => getAction('Direction_plus')} buttonName = '+'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <CalcButton onClick={() => getAction('Direction_equal')} buttonName = '='/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <CalcButton onClick={() => getAction('Direction_clear')} buttonName = 'CA'/>
         </p>
         <p>
           <ShowHideVaTrace onClick={()=>setShowVaTrace(!showVaTrace)} showVaTrace={showVaTrace}/>
@@ -149,13 +149,7 @@ function AppVal() {
   );
 }
 
-function DigitOne({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>1</b>&nbsp;&nbsp;&nbsp;</button>);}
-function DigitTwo({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>2</b>&nbsp;&nbsp;&nbsp;</button>);}
-function DigitThree({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>3</b>&nbsp;&nbsp;&nbsp;</button>);}
-//
-function ActionPlus({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>+</b>&nbsp;&nbsp;&nbsp;</button>);}
-function ActionEqual({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>=</b>&nbsp;&nbsp;&nbsp;</button>);}
-function ActionClear({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>CA</b>&nbsp;&nbsp;&nbsp;</button>);}
+function CalcButton({onClick, buttonName}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>{buttonName}</b>&nbsp;&nbsp;&nbsp;</button>);}
 function ShowHideVaTrace({onClick, showVaTrace}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>{showVaTrace ? "Hide va-trace" : "Show va-trace"}</b>&nbsp;&nbsp;&nbsp;</button>);}
 
 export default AppVal;
