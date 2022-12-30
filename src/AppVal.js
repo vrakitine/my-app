@@ -232,7 +232,7 @@ function AppVal() {
         <p>
           <img src="v-agent_32x32.png" alt="v-agent" width="32" height="32" /> &nbsp;  
           Powered by <a className = "App-header-link" 
-          href="https://vaop.notion.site/82c7784f41af4739bf1a185fc4e12bbc" 
+          href="https://vaop.notion.site/eco-programming-VAOP-106f8ec4418d42bdbb5ec371e8ddada9" 
           target="_blank"><span>VAOP</span></a>
         </p>
       </header>
