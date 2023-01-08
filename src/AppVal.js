@@ -108,7 +108,7 @@ function AppVal() {
   const [result, setResult] = useState('');
   const [warningMsg, setWarningMsg] = useState('');
 
-  const [showVaTrace, setShowVaTrace] = useState(false);
+  const [showVaTrace, setShowVaTrace] = useState(true);
   const [showWarning, setShowWarning] = useState(false);
   
 
