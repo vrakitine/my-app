@@ -129,7 +129,7 @@ function AppVal() {
   return (
     <div className="App">
       <header className="App-header">
-        <h2>Mini Calculator</h2>
+        <h2>Mini Va-Calculator</h2>
         {showWarning &&
           <p className = "App-header-warning">
             <small>{warningMsg}</small>
