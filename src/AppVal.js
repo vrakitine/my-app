@@ -1,102 +1,6 @@
 import './App.css';
 import { useState } from 'react';
-
-// how to show and hide components in react
-// https://www.pluralsight.com/guides/how-to-show-and-hide-reactjs-components
-// how to show and hide div on button click in react js
-// https://youtu.be/uXk62ZgPH-4 
-
-
-const vaScript = {
-  "Action_init":{
-     "Direction_one":"Action_operand_1_attach_one",
-     "Direction_two":"Action_operand_1_attach_two",     
-     "Direction_three":"Action_operand_1_attach_three",     
-     "Direction_plus":"Action_init",
-     "Direction_equal":"Action_init",
-     "Direction_clear":"Action_clear"
-  },
-  "Action_operand_1_attach_one":{
-     "Direction_one":"Action_operand_1_attach_one",
-     "Direction_two":"Action_operand_1_attach_two",
-     "Direction_three":"Action_operand_1_attach_three",  
-     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
-     "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-     "Direction_clear":"Action_clear"
-  },
-  "Action_operand_1_attach_two":{
-    "Direction_one":"Action_operand_1_attach_one",
-    "Direction_two":"Action_operand_1_attach_two",
-    "Direction_three":"Action_operand_1_attach_three",  
-    "Direction_plus":"Action_waiting_for_operand_2_for_plus",
-    "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
-  },
-  "Action_operand_1_attach_three":{
-    "Direction_one":"Action_operand_1_attach_one",
-    "Direction_two":"Action_operand_1_attach_two",
-    "Direction_three":"Action_operand_1_attach_three",  
-    "Direction_plus":"Action_waiting_for_operand_2_for_plus",
-    "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
-  },
-  "Action_warning_10__Second_operand_is_missing":{
-    "Direction_one":"Action_operand_2_attach_one",
-    "Direction_two":"Action_operand_2_attach_two",
-    "Direction_three":"Action_operand_2_attach_three",  
-    "Direction_plus":"Action_warning_10__Second_operand_is_missing",
-    "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
-  },
-  "Action_waiting_for_operand_2_for_plus":{
-    "Direction_one":"Action_operand_2_attach_one",
-    "Direction_two":"Action_operand_2_attach_two",
-    "Direction_three":"Action_operand_2_attach_three",  
-    "Direction_plus":"Action_waiting_for_operand_2_for_plus",
-    "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
-  },
-  "Action_operand_2_attach_one":{
-    "Direction_one":"Action_operand_2_attach_one",
-    "Direction_two":"Action_operand_2_attach_two",
-    "Direction_three":"Action_operand_2_attach_three",  
-    "Direction_plus":"Action_show_result",
-    "Direction_equal":"Action_show_result",
-    "Direction_clear":"Action_clear"
-  },
-  "Action_operand_2_attach_two":{
-    "Direction_one":"Action_operand_2_attach_one",
-    "Direction_two":"Action_operand_2_attach_two",
-    "Direction_three":"Action_operand_2_attach_three",  
-    "Direction_plus":"Action_show_result",
-    "Direction_equal":"Action_show_result",
-    "Direction_clear":"Action_clear"
-   },
-  "Action_operand_2_attach_three":{
-    "Direction_one":"Action_operand_2_attach_one",
-    "Direction_two":"Action_operand_2_attach_two",
-    "Direction_three":"Action_operand_2_attach_three",  
-    "Direction_plus":"Action_show_result",
-    "Direction_equal":"Action_show_result",
-    "Direction_clear":"Action_clear"
-   },
-   "Action_clear":{
-    "Direction_one":"Action_operand_1_attach_one",
-    "Direction_two":"Action_operand_1_attach_two",
-    "Direction_three":"Action_operand_1_attach_three",  
-    "Direction_plus":"Action_init",
-    "Direction_equal":"Action_init",
-    "Direction_clear":"Action_clear"
-   },
-   "Action_show_result":{
-    "Direction_one":"Action_clear",
-    "Direction_two":"Action_clear",
-    "Direction_three":"Action_clear",  
-    "Direction_plus":"Action_clear",
-    "Direction_equal":"Action_clear",
-    "Direction_clear":"Action_clear"
-   }
-  };
+import vaScript from './vaop/va-scripts/va-script-10.json';
 
 function AppVal() {
 
@@ -138,6 +42,9 @@ function AppVal() {
             var temp = +operandOne + +operandTwo;
             setResult(temp);
             break;
+        case "Action_operand_1_attach_zero":
+          setOperandOne(operandOne + '0')
+          break;
         case "Action_operand_1_attach_one":
           setOperandOne(operandOne + '1')
           break;
@@ -147,8 +54,29 @@ function AppVal() {
         case "Action_operand_1_attach_three":
           setOperandOne(operandOne + '3')
           break;
+        case "Action_operand_1_attach_four":
+          setOperandOne(operandOne + '4')
+          break;
+        case "Action_operand_1_attach_five":
+          setOperandOne(operandOne + '5')
+          break;
+        case "Action_operand_1_attach_six":
+          setOperandOne(operandOne + '6')
+          break;
+        case "Action_operand_1_attach_seven":
+          setOperandOne(operandOne + '7')
+          break;
+        case "Action_operand_1_attach_eight":
+          setOperandOne(operandOne + '8')
+          break;
+        case "Action_operand_1_attach_nine":
+          setOperandOne(operandOne + '9')
+          break; 
         case "Action_waiting_for_operand_2_for_plus":
           // do nothing
+          break;
+        case "Action_operand_2_attach_zero":
+          setOperandTwo(operandTwo + '0')
           break;
         case "Action_operand_2_attach_one":
           setOperandTwo(operandTwo + '1')
@@ -158,6 +86,24 @@ function AppVal() {
           break;
         case "Action_operand_2_attach_three":
           setOperandTwo(operandTwo + '3')
+          break;
+        case "Action_operand_2_attach_four":
+          setOperandTwo(operandTwo + '4')
+          break;
+        case "Action_operand_2_attach_five":
+          setOperandTwo(operandTwo + '5')
+          break;
+        case "Action_operand_2_attach_six":
+          setOperandTwo(operandTwo + '6')
+          break;
+        case "Action_operand_2_attach_seven":
+          setOperandTwo(operandTwo + '7')
+          break;
+        case "Action_operand_2_attach_eight":
+          setOperandTwo(operandTwo + '8')
+          break;
+        case "Action_operand_2_attach_nine":
+          setOperandTwo(operandTwo + '9')
           break;
         case "Action_warning_10__Second_operand_is_missing":
           setWarningMsg('Second operand is missing');
@@ -183,7 +129,7 @@ function AppVal() {
   return (
     <div className="App">
       <header className="App-header">
-        <h2>Mini Calculator</h2>
+        <h2>Mini Va-Calculator</h2>
         {showWarning &&
           <p className = "App-header-warning">
             <small>{warningMsg}</small>
@@ -193,12 +139,24 @@ function AppVal() {
           [{operandOne}] + [{operandTwo}] = [{result}] 
         </p>
         <p> 
-          <DigitOne onClick={() => getAction('Direction_one')}/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-          <DigitTwo onClick={() => getAction('Direction_two')}/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-          <DigitThree onClick={() => getAction('Direction_three')}/><br/><br/>
-          <ActionPlus onClick={() => getAction('Direction_plus')}/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-          <ActionEqual onClick={() => getAction('Direction_equal')}/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-          <ActionClear onClick={() => getAction('Direction_clear')}/>
+          <CalcButton onClick={() => getAction('Direction_seven')} buttonName = '7'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <CalcButton onClick={() => getAction('Direction_eight')} buttonName = '8'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <CalcButton onClick={() => getAction('Direction_nine')} buttonName = '9'/><br/><br/>
+         
+          <CalcButton onClick={() => getAction('Direction_four')} buttonName = '4'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <CalcButton onClick={() => getAction('Direction_five')} buttonName = '5'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <CalcButton onClick={() => getAction('Direction_six')} buttonName = '6'/><br/><br/>
+
+         
+         
+          <CalcButton onClick={() => getAction('Direction_one')} buttonName = '1'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <CalcButton onClick={() => getAction('Direction_two')} buttonName = '2'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <CalcButton onClick={() => getAction('Direction_three')} buttonName = '3'/><br/><br/>
+          
+          <CalcButton onClick={() => getAction('Direction_zero')} buttonName = '0'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <CalcButton onClick={() => getAction('Direction_plus')} buttonName = '+'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <CalcButton onClick={() => getAction('Direction_equal')} buttonName = '='/><br/><br/>
+          <CalcButton onClick={() => getAction('Direction_clear')} buttonName = 'CA'/>
         </p>
         <p>
           <ShowHideVaTrace onClick={()=>setShowVaTrace(!showVaTrace)} showVaTrace={showVaTrace}/>
@@ -240,13 +198,7 @@ function AppVal() {
   );
 }
 
-function DigitOne({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>1</b>&nbsp;&nbsp;&nbsp;</button>);}
-function DigitTwo({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>2</b>&nbsp;&nbsp;&nbsp;</button>);}
-function DigitThree({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>3</b>&nbsp;&nbsp;&nbsp;</button>);}
-//
-function ActionPlus({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>+</b>&nbsp;&nbsp;&nbsp;</button>);}
-function ActionEqual({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>=</b>&nbsp;&nbsp;&nbsp;</button>);}
-function ActionClear({onClick}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>CA</b>&nbsp;&nbsp;&nbsp;</button>);}
+function CalcButton({onClick, buttonName}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>{buttonName}</b>&nbsp;&nbsp;&nbsp;</button>);}
 function ShowHideVaTrace({onClick, showVaTrace}) {return (<button onClick={onClick}>&nbsp;&nbsp;&nbsp;<b>{showVaTrace ? "Hide va-trace" : "Show va-trace"}</b>&nbsp;&nbsp;&nbsp;</button>);}
 
 export default AppVal;
