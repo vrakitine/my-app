@@ -34,7 +34,7 @@
     "Direction_switch_to_base2and10":"Action_switch_to_base2and10"
   },
   "Action_switch_to_base2and10":{
-    "Direction_zero":"Action_operand_1_attach_zero",
+    "Direction_zero":"Action_binary_operand_1_attach_zero",
     "Direction_one":"Action_operand_1_attach_one",
     "Direction_two":"Action_operand_1_attach_two",     
     "Direction_three":"Action_operand_1_attach_three",     

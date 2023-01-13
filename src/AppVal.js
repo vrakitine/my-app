@@ -16,7 +16,13 @@ function AppVal() {
   const [showVaTrace, setShowVaTrace] = useState(true);
   const [showWarning, setShowWarning] = useState(false);
 
-  const [vaScript, setVaScript] = useState(vaScriptBase10Base2);
+  const [vaScript, setVaScript] = useState(vaScriptBase10);
+  const [isBase10, setIsBase10] = useState(true);
+  const [isBase10Base2, setIsBase10Base2] = useState(false);
+
+  //const [vaScript, setVaScript] = useState(vaScriptBase10Base2);
+  //const [isBase10Base2, setIsBase10Base2] = useState(true);
+  //const [isBase10, setIsBase] = useState(false);
   
 
   function getAction(direction) {
@@ -41,12 +47,16 @@ function AppVal() {
           setOperandTwo('');
           setResult('')
           setVaScript(vaScriptBase10);
+          setIsBase10Base2(false);
+          setIsBase10(true);
           break;
         case "Action_switch_to_base2and10":
           setOperandOne('');
           setOperandTwo('');
           setResult('')
           setVaScript(vaScriptBase10Base2);
+          setIsBase10Base2(true);
+          setIsBase10(false);
           break;
         case "Action_clear":
           setOperandOne('');
@@ -172,7 +182,25 @@ function AppVal() {
   return (
     <div className="App">
       <header className="App-header">
-        <h2>Mini Va-Calculator</h2>
+        {isBase10 &&
+          <h2>Mini Va-Calculator (Base 10)</h2>
+        }
+        {isBase10Base2 &&
+        <div>
+          <h2>Mini Va-Calculator (Base 2 and Base 10)</h2>
+          <h5>For binary operation start first operand with '0'</h5>
+        </div>
+        }
+        {isBase10Base2 &&
+            <div>
+              <CalcButton onClick={() => getAction('Direction_switch_to_base10')} buttonName = 'Switch to base 10'/>
+            </div>
+          }
+          {isBase10 &&
+            <div>
+              <CalcButton onClick={() => getAction('Direction_switch_to_base2and10')} buttonName = 'Switch to base 2 & 10 '/>
+            </div>
+        }
         {showWarning &&
           <p className = "App-header-warning">
             <small>{warningMsg}</small>
@@ -199,8 +227,6 @@ function AppVal() {
           <CalcButton onClick={() => getAction('Direction_zero')} buttonName = '0'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           <CalcButton onClick={() => getAction('Direction_plus')} buttonName = '+'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           <CalcButton onClick={() => getAction('Direction_equal')} buttonName = '='/><br/><br/>
-          <CalcButton onClick={() => getAction('Direction_switch_to_base10')} buttonName = 'to base 10'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-          <CalcButton onClick={() => getAction('Direction_switch_to_base2and10')} buttonName = 'to base 2 & 10 '/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           <CalcButton onClick={() => getAction('Direction_clear')} buttonName = 'CA'/>
         </p>
         <p>
