@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from 'react';
-import vaScript from './vaop/va-scripts/va-script-10.json';
+import vaScriptBase10 from './vaop/va-scripts/va-script_v1_base10.json';
+import vaScriptBase10Base2 from './vaop/va-scripts/va-script_v1_base10_and_base2.json';
 
 function AppVal() {
 
@@ -14,6 +15,8 @@ function AppVal() {
 
   const [showVaTrace, setShowVaTrace] = useState(true);
   const [showWarning, setShowWarning] = useState(false);
+
+  const [vaScript, setvaScript] = useState(vaScriptBase10Base2);
   
 
   function getAction(direction) {
