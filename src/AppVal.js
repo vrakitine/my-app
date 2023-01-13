@@ -193,7 +193,7 @@ function AppVal() {
         }
         {isBase10Base2 &&
             <div>
-              <CalcButton onClick={() => getAction('Direction_switch_to_base10')} buttonName = 'Switch to base 10'/>
+              <CalcButton onClick={() => getAction('Direction_switch_to_base10')} buttonName = 'Switch to only base 10'/>
             </div>
           }
           {isBase10 &&
@@ -217,8 +217,6 @@ function AppVal() {
           <CalcButton onClick={() => getAction('Direction_four')} buttonName = '4'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           <CalcButton onClick={() => getAction('Direction_five')} buttonName = '5'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           <CalcButton onClick={() => getAction('Direction_six')} buttonName = '6'/><br/><br/>
-
-         
          
           <CalcButton onClick={() => getAction('Direction_one')} buttonName = '1'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           <CalcButton onClick={() => getAction('Direction_two')} buttonName = '2'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
