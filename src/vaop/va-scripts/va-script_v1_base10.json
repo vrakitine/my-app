@@ -12,7 +12,43 @@
     "Direction_nine":"Action_operand_1_attach_nine",        
     "Direction_plus":"Action_init",
     "Direction_equal":"Action_init",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_switch_to_base10":"Action_switch_to_base10",
+    "Direction_switch_to_base2and10":"Action_switch_to_base2and10"
+  },
+  "Action_switch_to_base10":{
+    "Direction_zero":"Action_operand_1_attach_zero",
+    "Direction_one":"Action_operand_1_attach_one",
+    "Direction_two":"Action_operand_1_attach_two",     
+    "Direction_three":"Action_operand_1_attach_three",     
+    "Direction_four":"Action_operand_1_attach_four",     
+    "Direction_five":"Action_operand_1_attach_five",     
+    "Direction_six":"Action_operand_1_attach_six",     
+    "Direction_seven":"Action_operand_1_attach_seven",     
+    "Direction_eight":"Action_operand_1_attach_eight",     
+    "Direction_nine":"Action_operand_1_attach_nine",        
+    "Direction_plus":"Action_init",
+    "Direction_equal":"Action_init",
+    "Direction_clear":"Action_clear",
+    "Direction_switch_to_base10":"Action_switch_to_base10",
+    "Direction_switch_to_base2and10":"Action_switch_to_base2and10"
+  },
+  "Action_switch_to_base2and10":{
+    "Direction_zero":"Action_operand_1_attach_zero",
+    "Direction_one":"Action_operand_1_attach_one",
+    "Direction_two":"Action_operand_1_attach_two",     
+    "Direction_three":"Action_operand_1_attach_three",     
+    "Direction_four":"Action_operand_1_attach_four",     
+    "Direction_five":"Action_operand_1_attach_five",     
+    "Direction_six":"Action_operand_1_attach_six",     
+    "Direction_seven":"Action_operand_1_attach_seven",     
+    "Direction_eight":"Action_operand_1_attach_eight",     
+    "Direction_nine":"Action_operand_1_attach_nine",        
+    "Direction_plus":"Action_init",
+    "Direction_equal":"Action_init",
+    "Direction_clear":"Action_clear",
+    "Direction_switch_to_base10":"Action_switch_to_base10",
+    "Direction_switch_to_base2and10":"Action_switch_to_base2and10"
   },
   "Action_operand_1_attach_zero":{
     "Direction_zero":"Action_operand_1_attach_zero",
@@ -42,7 +78,9 @@
     "Direction_nine":"Action_operand_1_attach_nine",          
     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
     "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_switch_to_base10":"Action_switch_to_base10",
+    "Direction_switch_to_base2and10":"Action_switch_to_base2and10"
   },
   "Action_operand_1_attach_two":{
     "Direction_zero":"Action_operand_1_attach_zero",
@@ -57,7 +95,9 @@
     "Direction_nine":"Action_operand_1_attach_nine",          
     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
     "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_switch_to_base10":"Action_switch_to_base10",
+    "Direction_switch_to_base2and10":"Action_switch_to_base2and10"
   },
   "Action_operand_1_attach_three":{
     "Direction_zero":"Action_operand_1_attach_zero",
@@ -72,7 +112,9 @@
     "Direction_nine":"Action_operand_1_attach_nine",          
     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
     "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_switch_to_base10":"Action_switch_to_base10",
+    "Direction_switch_to_base2and10":"Action_switch_to_base2and10"
   },
   "Action_operand_1_attach_four":{
     "Direction_zero":"Action_operand_1_attach_zero",
@@ -87,7 +129,9 @@
     "Direction_nine":"Action_operand_1_attach_nine",          
     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
     "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_switch_to_base10":"Action_switch_to_base10",
+    "Direction_switch_to_base2and10":"Action_switch_to_base2and10"
   },
   "Action_operand_1_attach_five":{
     "Direction_zero":"Action_operand_1_attach_zero",
@@ -102,7 +146,9 @@
     "Direction_nine":"Action_operand_1_attach_nine",          
     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
     "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_switch_to_base10":"Action_switch_to_base10",
+    "Direction_switch_to_base2and10":"Action_switch_to_base2and10"
   },
   "Action_operand_1_attach_six":{
     "Direction_zero":"Action_operand_1_attach_zero",
@@ -117,7 +163,9 @@
     "Direction_nine":"Action_operand_1_attach_nine",          
     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
     "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_switch_to_base10":"Action_switch_to_base10",
+    "Direction_switch_to_base2and10":"Action_switch_to_base2and10"
   },
   "Action_operand_1_attach_seven":{
     "Direction_zero":"Action_operand_1_attach_zero",
@@ -132,7 +180,9 @@
     "Direction_nine":"Action_operand_1_attach_nine",          
     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
     "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_switch_to_base10":"Action_switch_to_base10",
+    "Direction_switch_to_base2and10":"Action_switch_to_base2and10"
   },
   "Action_operand_1_attach_eight":{
     "Direction_zero":"Action_operand_1_attach_zero",
@@ -147,7 +197,9 @@
     "Direction_nine":"Action_operand_1_attach_nine",          
     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
     "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_switch_to_base10":"Action_switch_to_base10",
+    "Direction_switch_to_base2and10":"Action_switch_to_base2and10"
   },
   "Action_operand_1_attach_nine":{
     "Direction_zero":"Action_operand_1_attach_zero",
@@ -162,7 +214,9 @@
     "Direction_nine":"Action_operand_1_attach_nine",          
     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
     "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_switch_to_base10":"Action_switch_to_base10",
+    "Direction_switch_to_base2and10":"Action_switch_to_base2and10"
   },
   "Action_warning_10__Second_operand_is_missing":{
     "Direction_zero":"Action_operand_2_attach_zero",
@@ -177,7 +231,9 @@
     "Direction_nine":"Action_operand_2_attach_nine",  
     "Direction_plus":"Action_warning_10__Second_operand_is_missing",
     "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_switch_to_base10":"Action_switch_to_base10",
+    "Direction_switch_to_base2and10":"Action_switch_to_base2and10"
   },
   "Action_waiting_for_operand_2_for_plus":{
     "Direction_zero":"Action_operand_2_attach_zero",
@@ -192,7 +248,9 @@
     "Direction_nine":"Action_operand_2_attach_nine",  
     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
     "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_switch_to_base10":"Action_switch_to_base10",
+    "Direction_switch_to_base2and10":"Action_switch_to_base2and10"
   },
   "Action_operand_2_attach_zero":{
     "Direction_zero":"Action_operand_2_attach_zero",
@@ -207,7 +265,9 @@
     "Direction_nine":"Action_operand_2_attach_nine",  
     "Direction_plus":"Action_show_result",
     "Direction_equal":"Action_show_result",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_switch_to_base10":"Action_switch_to_base10",
+    "Direction_switch_to_base2and10":"Action_switch_to_base2and10"
   },
   "Action_operand_2_attach_one":{
     "Direction_zero":"Action_operand_2_attach_zero",
@@ -222,7 +282,9 @@
     "Direction_nine":"Action_operand_2_attach_nine",  
     "Direction_plus":"Action_show_result",
     "Direction_equal":"Action_show_result",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_switch_to_base10":"Action_switch_to_base10",
+    "Direction_switch_to_base2and10":"Action_switch_to_base2and10"
   },
   "Action_operand_2_attach_two":{
     "Direction_zero":"Action_operand_2_attach_zero",
@@ -237,8 +299,10 @@
     "Direction_nine":"Action_operand_2_attach_nine",  
     "Direction_plus":"Action_show_result",
     "Direction_equal":"Action_show_result",
-    "Direction_clear":"Action_clear"
-   },
+    "Direction_clear":"Action_clear",
+    "Direction_switch_to_base10":"Action_switch_to_base10",
+    "Direction_switch_to_base2and10":"Action_switch_to_base2and10"
+  },
   "Action_operand_2_attach_three":{
     "Direction_zero":"Action_operand_2_attach_zero",
     "Direction_one":"Action_operand_2_attach_one",
@@ -252,8 +316,10 @@
     "Direction_nine":"Action_operand_2_attach_nine",  
     "Direction_plus":"Action_show_result",
     "Direction_equal":"Action_show_result",
-    "Direction_clear":"Action_clear"
-   },
+    "Direction_clear":"Action_clear",
+    "Direction_switch_to_base10":"Action_switch_to_base10",
+    "Direction_switch_to_base2and10":"Action_switch_to_base2and10"
+  },
   "Action_operand_2_attach_four":{
     "Direction_zero":"Action_operand_2_attach_zero",
     "Direction_one":"Action_operand_2_attach_one",
@@ -267,83 +333,95 @@
     "Direction_nine":"Action_operand_2_attach_nine",  
     "Direction_plus":"Action_show_result",
     "Direction_equal":"Action_show_result",
-    "Direction_clear":"Action_clear"
-   },
+    "Direction_clear":"Action_clear",
+    "Direction_switch_to_base10":"Action_switch_to_base10",
+    "Direction_switch_to_base2and10":"Action_switch_to_base2and10"
+  },
   "Action_operand_2_attach_five":{
-     "Direction_zero":"Action_operand_2_attach_zero",
-     "Direction_one":"Action_operand_2_attach_one",
-     "Direction_two":"Action_operand_2_attach_two",
-     "Direction_three":"Action_operand_2_attach_three",
-     "Direction_four":"Action_operand_2_attach_four",
-     "Direction_five":"Action_operand_2_attach_five",
-     "Direction_six":"Action_operand_2_attach_six",
-     "Direction_seven":"Action_operand_2_attach_seven",
-     "Direction_eight":"Action_operand_2_attach_eight",
-     "Direction_nine":"Action_operand_2_attach_nine",  
-     "Direction_plus":"Action_show_result",
-     "Direction_equal":"Action_show_result",
-     "Direction_clear":"Action_clear"
-    },
+    "Direction_zero":"Action_operand_2_attach_zero",
+    "Direction_one":"Action_operand_2_attach_one",
+    "Direction_two":"Action_operand_2_attach_two",
+    "Direction_three":"Action_operand_2_attach_three",
+    "Direction_four":"Action_operand_2_attach_four",
+    "Direction_five":"Action_operand_2_attach_five",
+    "Direction_six":"Action_operand_2_attach_six",
+    "Direction_seven":"Action_operand_2_attach_seven",
+    "Direction_eight":"Action_operand_2_attach_eight",
+    "Direction_nine":"Action_operand_2_attach_nine",  
+    "Direction_plus":"Action_show_result",
+    "Direction_equal":"Action_show_result",
+    "Direction_clear":"Action_clear",
+    "Direction_switch_to_base10":"Action_switch_to_base10",
+    "Direction_switch_to_base2and10":"Action_switch_to_base2and10"
+  },
   "Action_operand_2_attach_six":{
-      "Direction_zero":"Action_operand_2_attach_zero",
-      "Direction_one":"Action_operand_2_attach_one",
-      "Direction_two":"Action_operand_2_attach_two",
-      "Direction_three":"Action_operand_2_attach_three",
-      "Direction_four":"Action_operand_2_attach_four",
-      "Direction_five":"Action_operand_2_attach_five",
-      "Direction_six":"Action_operand_2_attach_six",
-      "Direction_seven":"Action_operand_2_attach_seven",
-      "Direction_eight":"Action_operand_2_attach_eight",
-      "Direction_nine":"Action_operand_2_attach_nine",  
-      "Direction_plus":"Action_show_result",
-      "Direction_equal":"Action_show_result",
-      "Direction_clear":"Action_clear"
-     },
-    "Action_operand_2_attach_seven":{
-       "Direction_zero":"Action_operand_2_attach_zero",
-       "Direction_one":"Action_operand_2_attach_one",
-       "Direction_two":"Action_operand_2_attach_two",
-       "Direction_three":"Action_operand_2_attach_three",
-       "Direction_four":"Action_operand_2_attach_four",
-       "Direction_five":"Action_operand_2_attach_five",
-       "Direction_six":"Action_operand_2_attach_six",
-       "Direction_seven":"Action_operand_2_attach_seven",
-       "Direction_eight":"Action_operand_2_attach_eight",
-       "Direction_nine":"Action_operand_2_attach_nine",  
-       "Direction_plus":"Action_show_result",
-       "Direction_equal":"Action_show_result",
-       "Direction_clear":"Action_clear"
-      },
-    "Action_operand_2_attach_eight":{
-        "Direction_zero":"Action_operand_2_attach_zero",
-        "Direction_one":"Action_operand_2_attach_one",
-        "Direction_two":"Action_operand_2_attach_two",
-        "Direction_three":"Action_operand_2_attach_three",
-        "Direction_four":"Action_operand_2_attach_four",
-        "Direction_five":"Action_operand_2_attach_five",
-        "Direction_six":"Action_operand_2_attach_six",
-        "Direction_seven":"Action_operand_2_attach_seven",
-        "Direction_eight":"Action_operand_2_attach_eight",
-        "Direction_nine":"Action_operand_2_attach_nine",  
-        "Direction_plus":"Action_show_result",
-        "Direction_equal":"Action_show_result",
-        "Direction_clear":"Action_clear"
-       },
-      "Action_operand_2_attach_nine":{
-         "Direction_zero":"Action_operand_2_attach_zero",
-         "Direction_one":"Action_operand_2_attach_one",
-         "Direction_two":"Action_operand_2_attach_two",
-         "Direction_three":"Action_operand_2_attach_three",
-         "Direction_four":"Action_operand_2_attach_four",
-         "Direction_five":"Action_operand_2_attach_five",
-         "Direction_six":"Action_operand_2_attach_six",
-         "Direction_seven":"Action_operand_2_attach_seven",
-         "Direction_eight":"Action_operand_2_attach_eight",
-         "Direction_nine":"Action_operand_2_attach_nine",  
-         "Direction_plus":"Action_show_result",
-         "Direction_equal":"Action_show_result",
-         "Direction_clear":"Action_clear"
-        },
+    "Direction_zero":"Action_operand_2_attach_zero",
+    "Direction_one":"Action_operand_2_attach_one",
+    "Direction_two":"Action_operand_2_attach_two",
+    "Direction_three":"Action_operand_2_attach_three",
+    "Direction_four":"Action_operand_2_attach_four",
+    "Direction_five":"Action_operand_2_attach_five",
+    "Direction_six":"Action_operand_2_attach_six",
+    "Direction_seven":"Action_operand_2_attach_seven",
+    "Direction_eight":"Action_operand_2_attach_eight",
+    "Direction_nine":"Action_operand_2_attach_nine",  
+    "Direction_plus":"Action_show_result",
+    "Direction_equal":"Action_show_result",
+    "Direction_clear":"Action_clear",
+    "Direction_switch_to_base10":"Action_switch_to_base10",
+    "Direction_switch_to_base2and10":"Action_switch_to_base2and10"
+  },
+  "Action_operand_2_attach_seven":{
+    "Direction_zero":"Action_operand_2_attach_zero",
+    "Direction_one":"Action_operand_2_attach_one",
+    "Direction_two":"Action_operand_2_attach_two",
+    "Direction_three":"Action_operand_2_attach_three",
+    "Direction_four":"Action_operand_2_attach_four",
+    "Direction_five":"Action_operand_2_attach_five",
+    "Direction_six":"Action_operand_2_attach_six",
+    "Direction_seven":"Action_operand_2_attach_seven",
+    "Direction_eight":"Action_operand_2_attach_eight",
+    "Direction_nine":"Action_operand_2_attach_nine",  
+    "Direction_plus":"Action_show_result",
+    "Direction_equal":"Action_show_result",
+    "Direction_clear":"Action_clear",
+    "Direction_switch_to_base10":"Action_switch_to_base10",
+    "Direction_switch_to_base2and10":"Action_switch_to_base2and10"
+  },
+  "Action_operand_2_attach_eight":{
+    "Direction_zero":"Action_operand_2_attach_zero",
+    "Direction_one":"Action_operand_2_attach_one",
+    "Direction_two":"Action_operand_2_attach_two",
+    "Direction_three":"Action_operand_2_attach_three",
+    "Direction_four":"Action_operand_2_attach_four",
+    "Direction_five":"Action_operand_2_attach_five",
+    "Direction_six":"Action_operand_2_attach_six",
+    "Direction_seven":"Action_operand_2_attach_seven",
+    "Direction_eight":"Action_operand_2_attach_eight",
+    "Direction_nine":"Action_operand_2_attach_nine",  
+    "Direction_plus":"Action_show_result",
+    "Direction_equal":"Action_show_result",
+    "Direction_clear":"Action_clear",
+    "Direction_switch_to_base10":"Action_switch_to_base10",
+    "Direction_switch_to_base2and10":"Action_switch_to_base2and10"
+  },
+  "Action_operand_2_attach_nine":{
+    "Direction_zero":"Action_operand_2_attach_zero",
+    "Direction_one":"Action_operand_2_attach_one",
+    "Direction_two":"Action_operand_2_attach_two",
+    "Direction_three":"Action_operand_2_attach_three",
+    "Direction_four":"Action_operand_2_attach_four",
+    "Direction_five":"Action_operand_2_attach_five",
+    "Direction_six":"Action_operand_2_attach_six",
+    "Direction_seven":"Action_operand_2_attach_seven",
+    "Direction_eight":"Action_operand_2_attach_eight",
+    "Direction_nine":"Action_operand_2_attach_nine",  
+    "Direction_plus":"Action_show_result",
+    "Direction_equal":"Action_show_result",
+    "Direction_clear":"Action_clear",
+    "Direction_switch_to_base10":"Action_switch_to_base10",
+    "Direction_switch_to_base2and10":"Action_switch_to_base2and10"
+  },
   "Action_clear":{
     "Direction_zero":"Action_operand_1_attach_zero",
     "Direction_one":"Action_operand_1_attach_one",
@@ -357,9 +435,11 @@
     "Direction_nine":"Action_operand_1_attach_nine",  
     "Direction_plus":"Action_init",
     "Direction_equal":"Action_init",
-    "Direction_clear":"Action_clear"
-   },
-   "Action_show_result":{
+    "Direction_clear":"Action_clear",
+    "Direction_switch_to_base10":"Action_switch_to_base10",
+    "Direction_switch_to_base2and10":"Action_switch_to_base2and10"
+  },
+  "Action_show_result":{
     "Direction_zero":"Action_clear",
     "Direction_one":"Action_clear",
     "Direction_two":"Action_clear",
@@ -372,6 +452,8 @@
     "Direction_nine":"Action_clear",  
     "Direction_plus":"Action_clear",
     "Direction_equal":"Action_clear",
-    "Direction_clear":"Action_clear"
-   }
+    "Direction_clear":"Action_clear",
+    "Direction_switch_to_base10":"Action_switch_to_base10",
+    "Direction_switch_to_base2and10":"Action_switch_to_base2and10"
   }
+}
