@@ -187,6 +187,8 @@ function AppVal() {
           <CalcButton onClick={() => getAction('Direction_zero')} buttonName = '0'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           <CalcButton onClick={() => getAction('Direction_plus')} buttonName = '+'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           <CalcButton onClick={() => getAction('Direction_equal')} buttonName = '='/><br/><br/>
+          <CalcButton onClick={() => getAction('Direction_switch_to_base10')} buttonName = 'to base 10'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <CalcButton onClick={() => getAction('Direction_switch_to_base2and10')} buttonName = 'to base 2 & 10 '/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           <CalcButton onClick={() => getAction('Direction_clear')} buttonName = 'CA'/>
         </p>
         <p>
