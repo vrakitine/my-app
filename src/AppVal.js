@@ -41,10 +41,14 @@ function AppVal() {
           setOperandTwo('');
           setResult('')
           break;
-          case "Action_show_result":
-            var temp = +operandOne + +operandTwo;
-            setResult(temp);
-            break;
+        case "Action_show_result":
+          var temp_1 = +operandOne + +operandTwo;
+          setResult(temp_1);
+          break;
+        case "Action_binary_show_result":
+          var temp_2 = parseInt(operandOne, 2) + parseInt(operandTwo, 2);
+          setResult(temp_2.toString( 2 ));
+          break;
         case "Action_operand_1_attach_zero":
           setOperandOne(operandOne + '0')
           break;
@@ -74,6 +78,12 @@ function AppVal() {
           break;
         case "Action_operand_1_attach_nine":
           setOperandOne(operandOne + '9')
+          break; 
+        case "Action_binary_operand_1_attach_zero":
+          setOperandOne(operandOne + '0')
+          break; 
+        case "Action_binary_operand_1_attach_one":
+          setOperandOne(operandOne + '1')
           break; 
         case "Action_waiting_for_operand_2_for_plus":
           // do nothing
@@ -108,8 +118,26 @@ function AppVal() {
         case "Action_operand_2_attach_nine":
           setOperandTwo(operandTwo + '9')
           break;
-        case "Action_warning_10__Second_operand_is_missing":
+        case "Action_binary_operand_2_attach_zero":
+          setOperandTwo(operandTwo + '0')
+          break; 
+        case "Action_binary_operand_2_attach_one":
+          setOperandTwo(operandTwo + '1')
+          break; 
+        case "Action_warning_10__second_operand_is_missing":
           setWarningMsg('Second operand is missing');
+          setShowWarning(true);
+          break;
+        case "Action_warning_15__binary_second_operand_is_missing":
+          setWarningMsg('Second binary operand is missing');
+          setShowWarning(true);
+          break;
+        case "Action_warning_20__operand_1_in_binary_mode":
+          setWarningMsg('First Operand in binary mode');
+          setShowWarning(true);
+          break;
+        case "Action_warning_30__operand_2_in_binary_mode":
+          setWarningMsg('Second Operand in binary mode');
           setShowWarning(true);
           break;
         default:
