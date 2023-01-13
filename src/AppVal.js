@@ -228,6 +228,12 @@ function AppVal() {
           <CalcButton onClick={() => getAction('Direction_clear')} buttonName = 'CA'/>
         </p>
         <p>
+          <img src="v-agent_32x32.png" alt="v-agent" width="32" height="32" /> &nbsp;  
+          Powered by <a className = "App-header-link" 
+          href="https://vaop.notion.site/eco-programming-VAOP-106f8ec4418d42bdbb5ec371e8ddada9" 
+          target="_blank"><span>v-agent oriented programming (VAOP)</span></a>
+        </p>
+        <p>
           <ShowHideVaTrace onClick={()=>setShowVaTrace(!showVaTrace)} showVaTrace={showVaTrace}/>
         </p>
         {showVaTrace &&
@@ -256,12 +262,6 @@ function AppVal() {
             </p>
           </div>
         }
-        <p>
-          <img src="v-agent_32x32.png" alt="v-agent" width="32" height="32" /> &nbsp;  
-          Powered by <a className = "App-header-link" 
-          href="https://vaop.notion.site/eco-programming-VAOP-106f8ec4418d42bdbb5ec371e8ddada9" 
-          target="_blank"><span>VAOP</span></a>
-        </p>
       </header>
     </div>
   );
