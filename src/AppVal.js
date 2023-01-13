@@ -35,6 +35,18 @@ function AppVal() {
       switch(nextAction) {
         case "Action_init":
           // do nothing
+        break;
+        case "Action_switch_to_base10":
+          setOperandOne('');
+          setOperandTwo('');
+          setResult('')
+          setVaScript(vaScriptBase10);
+          break;
+        case "Action_switch_to_base2and10":
+          setOperandOne('');
+          setOperandTwo('');
+          setResult('')
+          setVaScript(vaScriptBase10Base2);
           break;
         case "Action_clear":
           setOperandOne('');
@@ -139,18 +151,6 @@ function AppVal() {
         case "Action_warning_30__operand_2_in_binary_mode":
           setWarningMsg('Second Operand in binary mode');
           setShowWarning(true);
-          break;
-        case "Action_switch_to_base10":
-          setOperandOne('');
-          setOperandTwo('');
-          setResult('')
-          setVaScript(vaScriptBase10);
-          break;
-        case "Action_switch_to_base2and10":
-          setOperandOne('');
-          setOperandTwo('');
-          setResult('')
-          setVaScript(vaScriptBase10Base2);
           break;
         default:
           console.log('Error: Unknown action in default:[' + nextAction + ']')
