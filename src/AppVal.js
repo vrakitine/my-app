@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from 'react';
-import vaScript from './vaop/va-scripts/va-script-10.json';
+import vaScriptBase10 from './vaop/va-scripts/va-script_v1_base10.json';
+import vaScriptBase10Base2 from './vaop/va-scripts/va-script_v1_base10_and_base2.json';
 
 function AppVal() {
 
@@ -14,6 +15,14 @@ function AppVal() {
 
   const [showVaTrace, setShowVaTrace] = useState(true);
   const [showWarning, setShowWarning] = useState(false);
+
+  const [vaScript, setVaScript] = useState(vaScriptBase10);
+  const [isBase10, setIsBase10] = useState(true);
+  const [isBase10Base2, setIsBase10Base2] = useState(false);
+
+  //const [vaScript, setVaScript] = useState(vaScriptBase10Base2);
+  //const [isBase10Base2, setIsBase10Base2] = useState(true);
+  //const [isBase10, setIsBase] = useState(false);
   
 
   function getAction(direction) {
@@ -32,16 +41,36 @@ function AppVal() {
       switch(nextAction) {
         case "Action_init":
           // do nothing
+        break;
+        case "Action_switch_to_base10":
+          setOperandOne('');
+          setOperandTwo('');
+          setResult('')
+          setVaScript(vaScriptBase10);
+          setIsBase10Base2(false);
+          setIsBase10(true);
+          break;
+        case "Action_switch_to_base2and10":
+          setOperandOne('');
+          setOperandTwo('');
+          setResult('')
+          setVaScript(vaScriptBase10Base2);
+          setIsBase10Base2(true);
+          setIsBase10(false);
           break;
         case "Action_clear":
           setOperandOne('');
           setOperandTwo('');
           setResult('')
           break;
-          case "Action_show_result":
-            var temp = +operandOne + +operandTwo;
-            setResult(temp);
-            break;
+        case "Action_show_result":
+          var temp_1 = +operandOne + +operandTwo;
+          setResult(temp_1);
+          break;
+        case "Action_binary_show_result":
+          var temp_2 = parseInt(operandOne, 2) + parseInt(operandTwo, 2);
+          setResult(temp_2.toString( 2 ));
+          break;
         case "Action_operand_1_attach_zero":
           setOperandOne(operandOne + '0')
           break;
@@ -71,6 +100,12 @@ function AppVal() {
           break;
         case "Action_operand_1_attach_nine":
           setOperandOne(operandOne + '9')
+          break; 
+        case "Action_binary_operand_1_attach_zero":
+          setOperandOne(operandOne + '0')
+          break; 
+        case "Action_binary_operand_1_attach_one":
+          setOperandOne(operandOne + '1')
           break; 
         case "Action_waiting_for_operand_2_for_plus":
           // do nothing
@@ -105,8 +140,26 @@ function AppVal() {
         case "Action_operand_2_attach_nine":
           setOperandTwo(operandTwo + '9')
           break;
-        case "Action_warning_10__Second_operand_is_missing":
+        case "Action_binary_operand_2_attach_zero":
+          setOperandTwo(operandTwo + '0')
+          break; 
+        case "Action_binary_operand_2_attach_one":
+          setOperandTwo(operandTwo + '1')
+          break; 
+        case "Action_warning_10__second_operand_is_missing":
           setWarningMsg('Second operand is missing');
+          setShowWarning(true);
+          break;
+        case "Action_warning_15__binary_second_operand_is_missing":
+          setWarningMsg('Second binary operand is missing');
+          setShowWarning(true);
+          break;
+        case "Action_warning_20__operand_1_in_binary_mode":
+          setWarningMsg('First Operand in binary mode');
+          setShowWarning(true);
+          break;
+        case "Action_warning_30__operand_2_in_binary_mode":
+          setWarningMsg('Second Operand in binary mode');
           setShowWarning(true);
           break;
         default:
@@ -129,7 +182,25 @@ function AppVal() {
   return (
     <div className="App">
       <header className="App-header">
-        <h2>Mini Va-Calculator</h2>
+        {isBase10 &&
+          <h2>Mini Va-Calculator (Base 10)</h2>
+        }
+        {isBase10Base2 &&
+        <div>
+          <h2>Mini Va-Calculator (Base 2 and Base 10)</h2>
+          <h5>For binary operation start first operand with '0'</h5>
+        </div>
+        }
+        {isBase10Base2 &&
+            <div>
+              <CalcButton onClick={() => getAction('Direction_switch_to_base10')} buttonName = 'Switch to only base 10'/>
+            </div>
+          }
+          {isBase10 &&
+            <div>
+              <CalcButton onClick={() => getAction('Direction_switch_to_base2and10')} buttonName = 'Switch to base 2 & 10 '/>
+            </div>
+        }
         {showWarning &&
           <p className = "App-header-warning">
             <small>{warningMsg}</small>
@@ -146,8 +217,6 @@ function AppVal() {
           <CalcButton onClick={() => getAction('Direction_four')} buttonName = '4'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           <CalcButton onClick={() => getAction('Direction_five')} buttonName = '5'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           <CalcButton onClick={() => getAction('Direction_six')} buttonName = '6'/><br/><br/>
-
-         
          
           <CalcButton onClick={() => getAction('Direction_one')} buttonName = '1'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           <CalcButton onClick={() => getAction('Direction_two')} buttonName = '2'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -157,6 +226,12 @@ function AppVal() {
           <CalcButton onClick={() => getAction('Direction_plus')} buttonName = '+'/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           <CalcButton onClick={() => getAction('Direction_equal')} buttonName = '='/><br/><br/>
           <CalcButton onClick={() => getAction('Direction_clear')} buttonName = 'CA'/>
+        </p>
+        <p>
+          <img src="v-agent_32x32.png" alt="v-agent" width="32" height="32" /> &nbsp;  
+          Powered by <a className = "App-header-link" 
+          href="https://vaop.notion.site/eco-programming-VAOP-106f8ec4418d42bdbb5ec371e8ddada9" 
+          target="_blank"><span>v-agent oriented programming (VAOP)</span></a>
         </p>
         <p>
           <ShowHideVaTrace onClick={()=>setShowVaTrace(!showVaTrace)} showVaTrace={showVaTrace}/>
@@ -187,12 +262,6 @@ function AppVal() {
             </p>
           </div>
         }
-        <p>
-          <img src="v-agent_32x32.png" alt="v-agent" width="32" height="32" /> &nbsp;  
-          Powered by <a className = "App-header-link" 
-          href="https://vaop.notion.site/eco-programming-VAOP-106f8ec4418d42bdbb5ec371e8ddada9" 
-          target="_blank"><span>VAOP</span></a>
-        </p>
       </header>
     </div>
   );
