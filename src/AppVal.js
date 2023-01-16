@@ -199,6 +199,9 @@ function AppVal() {
             </p>
             </div>
         }
+        <p>
+          <ShowHideVaTrace onClick={()=>setShowVaTrace(!showVaTrace)} showVaTrace={showVaTrace}/>
+        </p>
         {isBase10 &&
           <h2>Mini Va-Calculator (Base 10)</h2>
         }
