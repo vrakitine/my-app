@@ -182,6 +182,23 @@ function AppVal() {
   return (
     <div className="App">
       <header className="App-header">
+      {showVaTrace &&
+          <div>
+            <p className = "App-header-trace">
+                === va-trace ===<br/><br/>
+                <small>previous: </small>[<span className="App-header-trace-action">{previousAction}</span>]<br/>
+                <small>direction: </small>[<span className="App-header-trace-action">{directionAction}</span>]<br/>
+                <small>current: </small>[<span className="App-header-trace-action">{currentAction}</span>]
+                <br/>
+                <br/>
+                open source code: <a className = "App-header-link" 
+            href="https://github.com/vrakitine/my-app" 
+            target="_blank"><span>github.com/vrakitine/my-app</span></a>
+                <br/>
+                &nbsp;
+            </p>
+            </div>
+        }
         {isBase10 &&
           <h2>Mini Va-Calculator (Base 10)</h2>
         }
